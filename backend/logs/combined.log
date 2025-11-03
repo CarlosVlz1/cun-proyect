@@ -1,0 +1,726 @@
+2025-11-03 12:31:07 info [NestFactory] Starting Nest application...
+2025-11-03 12:31:07 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 12:31:07 info [InstanceLoader] PassportModule dependencies initialized
+2025-11-03 12:31:07 info [InstanceLoader] ConfigHostModule dependencies initialized
+2025-11-03 12:31:07 info [InstanceLoader] ConfigModule dependencies initialized
+2025-11-03 12:31:07 info [InstanceLoader] ConfigModule dependencies initialized
+2025-11-03 12:31:07 info [InstanceLoader] ThrottlerModule dependencies initialized
+2025-11-03 12:31:07 info [InstanceLoader] JwtModule dependencies initialized
+2025-11-03 12:31:07 info [InstanceLoader] AppModule dependencies initialized
+2025-11-03 12:31:37 error [MongooseModule] MongooseServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017, connect ECONNREFUSED ::1:27017
+    at _handleConnectionErrors (/Users/cvelez/Documents/cun-project/node_modules/mongoose/lib/connection.js:1169:11)
+    at NativeConnection.asPromise (/Users/cvelez/Documents/cun-project/node_modules/mongoose/lib/connection.js:1639:11)
+    at async /Users/cvelez/Documents/cun-project/node_modules/@nestjs/mongoose/dist/mongoose-core.module.js:65:112
+2025-11-03 12:32:08 error [MongooseModule] MongooseServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017, connect ECONNREFUSED ::1:27017
+    at _handleConnectionErrors (/Users/cvelez/Documents/cun-project/node_modules/mongoose/lib/connection.js:1169:11)
+    at NativeConnection.asPromise (/Users/cvelez/Documents/cun-project/node_modules/mongoose/lib/connection.js:1639:11)
+    at async /Users/cvelez/Documents/cun-project/node_modules/@nestjs/mongoose/dist/mongoose-core.module.js:65:112
+2025-11-03 12:32:39 error [MongooseModule] MongooseServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017, connect ECONNREFUSED ::1:27017
+    at _handleConnectionErrors (/Users/cvelez/Documents/cun-project/node_modules/mongoose/lib/connection.js:1169:11)
+    at NativeConnection.asPromise (/Users/cvelez/Documents/cun-project/node_modules/mongoose/lib/connection.js:1639:11)
+    at async /Users/cvelez/Documents/cun-project/node_modules/@nestjs/mongoose/dist/mongoose-core.module.js:65:112
+2025-11-03 12:34:58 info [NestFactory] Starting Nest application...
+2025-11-03 12:34:58 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 12:34:58 info [InstanceLoader] PassportModule dependencies initialized
+2025-11-03 12:34:58 info [InstanceLoader] ConfigHostModule dependencies initialized
+2025-11-03 12:34:58 info [InstanceLoader] ConfigModule dependencies initialized
+2025-11-03 12:34:58 info [InstanceLoader] ConfigModule dependencies initialized
+2025-11-03 12:34:58 info [InstanceLoader] ThrottlerModule dependencies initialized
+2025-11-03 12:34:58 info [InstanceLoader] JwtModule dependencies initialized
+2025-11-03 12:34:58 info [InstanceLoader] AppModule dependencies initialized
+2025-11-03 12:34:59 info [InstanceLoader] MongooseCoreModule dependencies initialized
+2025-11-03 12:35:20 info [NestFactory] Starting Nest application...
+2025-11-03 12:35:20 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 12:35:20 info [InstanceLoader] PassportModule dependencies initialized
+2025-11-03 12:35:20 info [InstanceLoader] ConfigHostModule dependencies initialized
+2025-11-03 12:35:20 info [InstanceLoader] ConfigModule dependencies initialized
+2025-11-03 12:35:20 info [InstanceLoader] ConfigModule dependencies initialized
+2025-11-03 12:35:20 info [InstanceLoader] ThrottlerModule dependencies initialized
+2025-11-03 12:35:20 info [InstanceLoader] JwtModule dependencies initialized
+2025-11-03 12:35:20 info [InstanceLoader] AppModule dependencies initialized
+2025-11-03 12:35:22 info [InstanceLoader] MongooseCoreModule dependencies initialized
+2025-11-03 12:36:05 info [NestFactory] Starting Nest application...
+2025-11-03 12:36:05 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 12:36:05 info [InstanceLoader] PassportModule dependencies initialized
+2025-11-03 12:36:05 info [InstanceLoader] ConfigHostModule dependencies initialized
+2025-11-03 12:36:05 info [InstanceLoader] ConfigModule dependencies initialized
+2025-11-03 12:36:05 info [InstanceLoader] ConfigModule dependencies initialized
+2025-11-03 12:36:05 info [InstanceLoader] ThrottlerModule dependencies initialized
+2025-11-03 12:36:05 info [InstanceLoader] JwtModule dependencies initialized
+2025-11-03 12:36:05 info [InstanceLoader] AppModule dependencies initialized
+2025-11-03 12:36:06 info [InstanceLoader] MongooseCoreModule dependencies initialized
+2025-11-03 12:36:06 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 12:36:06 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 12:36:06 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 12:36:06 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 12:36:06 info [InstanceLoader] UsersModule dependencies initialized
+2025-11-03 12:36:06 info [InstanceLoader] StatisticsModule dependencies initialized
+2025-11-03 12:36:06 info [InstanceLoader] TasksModule dependencies initialized
+2025-11-03 12:36:06 info [InstanceLoader] CategoriesModule dependencies initialized
+2025-11-03 12:36:06 info [InstanceLoader] BackupModule dependencies initialized
+2025-11-03 12:36:06 info [InstanceLoader] AuthModule dependencies initialized
+2025-11-03 12:36:06 info [RoutesResolver] AuthController {/api/auth}:
+2025-11-03 12:36:06 info [RouterExplorer] Mapped {/api/auth/register, POST} route
+2025-11-03 12:36:06 info [RouterExplorer] Mapped {/api/auth/login, POST} route
+2025-11-03 12:36:06 info [RouterExplorer] Mapped {/api/auth/refresh, POST} route
+2025-11-03 12:36:06 info [RouterExplorer] Mapped {/api/auth/logout, POST} route
+2025-11-03 12:36:06 info [RouterExplorer] Mapped {/api/auth/verify, POST} route
+2025-11-03 12:36:06 info [RoutesResolver] UsersController {/api/users}:
+2025-11-03 12:36:06 info [RouterExplorer] Mapped {/api/users/me, GET} route
+2025-11-03 12:36:06 info [RouterExplorer] Mapped {/api/users, GET} route
+2025-11-03 12:36:06 info [RouterExplorer] Mapped {/api/users/:id, GET} route
+2025-11-03 12:36:06 info [RouterExplorer] Mapped {/api/users/me, PATCH} route
+2025-11-03 12:36:06 info [RouterExplorer] Mapped {/api/users/me/password, PATCH} route
+2025-11-03 12:36:06 info [RouterExplorer] Mapped {/api/users/me, DELETE} route
+2025-11-03 12:36:06 info [RoutesResolver] TasksController {/api/tasks}:
+2025-11-03 12:36:06 info [RouterExplorer] Mapped {/api/tasks, POST} route
+2025-11-03 12:36:06 info [RouterExplorer] Mapped {/api/tasks, GET} route
+2025-11-03 12:36:06 info [RouterExplorer] Mapped {/api/tasks/upcoming, GET} route
+2025-11-03 12:36:06 info [RouterExplorer] Mapped {/api/tasks/overdue, GET} route
+2025-11-03 12:36:06 info [RouterExplorer] Mapped {/api/tasks/count-by-status, GET} route
+2025-11-03 12:36:06 info [RouterExplorer] Mapped {/api/tasks/:id, GET} route
+2025-11-03 12:36:06 info [RouterExplorer] Mapped {/api/tasks/:id, PATCH} route
+2025-11-03 12:36:06 info [RouterExplorer] Mapped {/api/tasks/:id/toggle-complete, PATCH} route
+2025-11-03 12:36:06 info [RouterExplorer] Mapped {/api/tasks/:id/toggle-archive, PATCH} route
+2025-11-03 12:36:06 info [RouterExplorer] Mapped {/api/tasks/bulk-update-order, POST} route
+2025-11-03 12:36:06 info [RouterExplorer] Mapped {/api/tasks/:id, DELETE} route
+2025-11-03 12:36:06 info [RouterExplorer] Mapped {/api/tasks/bulk-delete, POST} route
+2025-11-03 12:36:06 info [RoutesResolver] CategoriesController {/api/categories}:
+2025-11-03 12:36:06 info [RouterExplorer] Mapped {/api/categories, POST} route
+2025-11-03 12:36:06 info [RouterExplorer] Mapped {/api/categories, GET} route
+2025-11-03 12:36:06 info [RouterExplorer] Mapped {/api/categories/task-counts, GET} route
+2025-11-03 12:36:06 info [RouterExplorer] Mapped {/api/categories/:id, GET} route
+2025-11-03 12:36:06 info [RouterExplorer] Mapped {/api/categories/:id, PATCH} route
+2025-11-03 12:36:06 info [RouterExplorer] Mapped {/api/categories/:id, DELETE} route
+2025-11-03 12:36:06 info [RoutesResolver] StatisticsController {/api/statistics}:
+2025-11-03 12:36:06 info [RouterExplorer] Mapped {/api/statistics/general, GET} route
+2025-11-03 12:36:06 info [RouterExplorer] Mapped {/api/statistics/by-priority, GET} route
+2025-11-03 12:36:06 info [RouterExplorer] Mapped {/api/statistics/by-category, GET} route
+2025-11-03 12:36:06 info [RouterExplorer] Mapped {/api/statistics/weekly-productivity, GET} route
+2025-11-03 12:36:06 info [RouterExplorer] Mapped {/api/statistics/monthly-productivity, GET} route
+2025-11-03 12:36:06 info [RoutesResolver] BackupController {/api/backup}:
+2025-11-03 12:36:06 info [RouterExplorer] Mapped {/api/backup/export, GET} route
+2025-11-03 12:36:06 info [RouterExplorer] Mapped {/api/backup/import, POST} route
+2025-11-03 12:36:06 info [RouterExplorer] Mapped {/api/backup/create, POST} route
+2025-11-03 12:36:06 info [RouterExplorer] Mapped {/api/backup/restore, POST} route
+2025-11-03 12:36:06 info [RouterExplorer] Mapped {/api/backup/delete-all, DELETE} route
+2025-11-03 12:36:06 info [NestApplication] Nest application successfully started
+2025-11-03 12:36:06 info [Bootstrap] 🚀 Aplicación ejecutándose en: http://localhost:4000/api
+2025-11-03 12:36:06 info [Bootstrap] 📚 Documentación Swagger en: http://localhost:4000/api/docs
+2025-11-03 12:36:06 info [Bootstrap] 🗄️  Base de datos: cluster0.djgh5us.mongodb.net/
+2025-11-03 12:36:21 info [NestFactory] Starting Nest application...
+2025-11-03 12:36:21 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 12:36:21 info [InstanceLoader] PassportModule dependencies initialized
+2025-11-03 12:36:21 info [InstanceLoader] ConfigHostModule dependencies initialized
+2025-11-03 12:36:21 info [InstanceLoader] ConfigModule dependencies initialized
+2025-11-03 12:36:21 info [InstanceLoader] ConfigModule dependencies initialized
+2025-11-03 12:36:21 info [InstanceLoader] ThrottlerModule dependencies initialized
+2025-11-03 12:36:21 info [InstanceLoader] JwtModule dependencies initialized
+2025-11-03 12:36:21 info [InstanceLoader] AppModule dependencies initialized
+2025-11-03 12:36:22 info [InstanceLoader] MongooseCoreModule dependencies initialized
+2025-11-03 12:36:22 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 12:36:22 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 12:36:22 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 12:36:22 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 12:36:22 info [InstanceLoader] UsersModule dependencies initialized
+2025-11-03 12:36:22 info [InstanceLoader] StatisticsModule dependencies initialized
+2025-11-03 12:36:22 info [InstanceLoader] TasksModule dependencies initialized
+2025-11-03 12:36:22 info [InstanceLoader] CategoriesModule dependencies initialized
+2025-11-03 12:36:22 info [InstanceLoader] BackupModule dependencies initialized
+2025-11-03 12:36:22 info [InstanceLoader] AuthModule dependencies initialized
+2025-11-03 12:36:22 info [RoutesResolver] AuthController {/api/auth}:
+2025-11-03 12:36:22 info [RouterExplorer] Mapped {/api/auth/register, POST} route
+2025-11-03 12:36:22 info [RouterExplorer] Mapped {/api/auth/login, POST} route
+2025-11-03 12:36:22 info [RouterExplorer] Mapped {/api/auth/refresh, POST} route
+2025-11-03 12:36:22 info [RouterExplorer] Mapped {/api/auth/logout, POST} route
+2025-11-03 12:36:22 info [RouterExplorer] Mapped {/api/auth/verify, POST} route
+2025-11-03 12:36:22 info [RoutesResolver] UsersController {/api/users}:
+2025-11-03 12:36:22 info [RouterExplorer] Mapped {/api/users/me, GET} route
+2025-11-03 12:36:22 info [RouterExplorer] Mapped {/api/users, GET} route
+2025-11-03 12:36:22 info [RouterExplorer] Mapped {/api/users/:id, GET} route
+2025-11-03 12:36:22 info [RouterExplorer] Mapped {/api/users/me, PATCH} route
+2025-11-03 12:36:22 info [RouterExplorer] Mapped {/api/users/me/password, PATCH} route
+2025-11-03 12:36:22 info [RouterExplorer] Mapped {/api/users/me, DELETE} route
+2025-11-03 12:36:22 info [RoutesResolver] TasksController {/api/tasks}:
+2025-11-03 12:36:22 info [RouterExplorer] Mapped {/api/tasks, POST} route
+2025-11-03 12:36:22 info [RouterExplorer] Mapped {/api/tasks, GET} route
+2025-11-03 12:36:22 info [RouterExplorer] Mapped {/api/tasks/upcoming, GET} route
+2025-11-03 12:36:22 info [RouterExplorer] Mapped {/api/tasks/overdue, GET} route
+2025-11-03 12:36:22 info [RouterExplorer] Mapped {/api/tasks/count-by-status, GET} route
+2025-11-03 12:36:22 info [RouterExplorer] Mapped {/api/tasks/:id, GET} route
+2025-11-03 12:36:22 info [RouterExplorer] Mapped {/api/tasks/:id, PATCH} route
+2025-11-03 12:36:22 info [RouterExplorer] Mapped {/api/tasks/:id/toggle-complete, PATCH} route
+2025-11-03 12:36:22 info [RouterExplorer] Mapped {/api/tasks/:id/toggle-archive, PATCH} route
+2025-11-03 12:36:22 info [RouterExplorer] Mapped {/api/tasks/bulk-update-order, POST} route
+2025-11-03 12:36:22 info [RouterExplorer] Mapped {/api/tasks/:id, DELETE} route
+2025-11-03 12:36:22 info [RouterExplorer] Mapped {/api/tasks/bulk-delete, POST} route
+2025-11-03 12:36:22 info [RoutesResolver] CategoriesController {/api/categories}:
+2025-11-03 12:36:22 info [RouterExplorer] Mapped {/api/categories, POST} route
+2025-11-03 12:36:22 info [RouterExplorer] Mapped {/api/categories, GET} route
+2025-11-03 12:36:22 info [RouterExplorer] Mapped {/api/categories/task-counts, GET} route
+2025-11-03 12:36:22 info [RouterExplorer] Mapped {/api/categories/:id, GET} route
+2025-11-03 12:36:22 info [RouterExplorer] Mapped {/api/categories/:id, PATCH} route
+2025-11-03 12:36:22 info [RouterExplorer] Mapped {/api/categories/:id, DELETE} route
+2025-11-03 12:36:22 info [RoutesResolver] StatisticsController {/api/statistics}:
+2025-11-03 12:36:22 info [RouterExplorer] Mapped {/api/statistics/general, GET} route
+2025-11-03 12:36:22 info [RouterExplorer] Mapped {/api/statistics/by-priority, GET} route
+2025-11-03 12:36:22 info [RouterExplorer] Mapped {/api/statistics/by-category, GET} route
+2025-11-03 12:36:22 info [RouterExplorer] Mapped {/api/statistics/weekly-productivity, GET} route
+2025-11-03 12:36:22 info [RouterExplorer] Mapped {/api/statistics/monthly-productivity, GET} route
+2025-11-03 12:36:22 info [RoutesResolver] BackupController {/api/backup}:
+2025-11-03 12:36:22 info [RouterExplorer] Mapped {/api/backup/export, GET} route
+2025-11-03 12:36:22 info [RouterExplorer] Mapped {/api/backup/import, POST} route
+2025-11-03 12:36:22 info [RouterExplorer] Mapped {/api/backup/create, POST} route
+2025-11-03 12:36:22 info [RouterExplorer] Mapped {/api/backup/restore, POST} route
+2025-11-03 12:36:22 info [RouterExplorer] Mapped {/api/backup/delete-all, DELETE} route
+2025-11-03 12:36:22 info [NestApplication] Nest application successfully started
+2025-11-03 12:36:22 info [Bootstrap] 🚀 Aplicación ejecutándose en: http://localhost:4000/api
+2025-11-03 12:36:22 info [Bootstrap] 📚 Documentación Swagger en: http://localhost:4000/api/docs
+2025-11-03 12:36:22 info [Bootstrap] 🗄️  Base de datos: cluster0.djgh5us.mongodb.net/
+2025-11-03 12:36:52 info [NestFactory] Starting Nest application...
+2025-11-03 12:36:52 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 12:36:52 info [InstanceLoader] PassportModule dependencies initialized
+2025-11-03 12:36:52 info [InstanceLoader] ConfigHostModule dependencies initialized
+2025-11-03 12:36:52 info [InstanceLoader] ConfigModule dependencies initialized
+2025-11-03 12:36:52 info [InstanceLoader] ConfigModule dependencies initialized
+2025-11-03 12:36:52 info [InstanceLoader] ThrottlerModule dependencies initialized
+2025-11-03 12:36:52 info [InstanceLoader] JwtModule dependencies initialized
+2025-11-03 12:36:52 info [InstanceLoader] AppModule dependencies initialized
+2025-11-03 12:36:53 info [InstanceLoader] MongooseCoreModule dependencies initialized
+2025-11-03 12:36:53 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 12:36:53 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 12:36:53 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 12:36:53 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 12:36:53 info [InstanceLoader] UsersModule dependencies initialized
+2025-11-03 12:36:53 info [InstanceLoader] StatisticsModule dependencies initialized
+2025-11-03 12:36:53 info [InstanceLoader] TasksModule dependencies initialized
+2025-11-03 12:36:53 info [InstanceLoader] CategoriesModule dependencies initialized
+2025-11-03 12:36:53 info [InstanceLoader] BackupModule dependencies initialized
+2025-11-03 12:36:53 info [InstanceLoader] AuthModule dependencies initialized
+2025-11-03 12:36:53 info [RoutesResolver] AuthController {/api/auth}:
+2025-11-03 12:36:53 info [RouterExplorer] Mapped {/api/auth/register, POST} route
+2025-11-03 12:36:53 info [RouterExplorer] Mapped {/api/auth/login, POST} route
+2025-11-03 12:36:53 info [RouterExplorer] Mapped {/api/auth/refresh, POST} route
+2025-11-03 12:36:53 info [RouterExplorer] Mapped {/api/auth/logout, POST} route
+2025-11-03 12:36:53 info [RouterExplorer] Mapped {/api/auth/verify, POST} route
+2025-11-03 12:36:53 info [RoutesResolver] UsersController {/api/users}:
+2025-11-03 12:36:53 info [RouterExplorer] Mapped {/api/users/me, GET} route
+2025-11-03 12:36:53 info [RouterExplorer] Mapped {/api/users, GET} route
+2025-11-03 12:36:53 info [RouterExplorer] Mapped {/api/users/:id, GET} route
+2025-11-03 12:36:53 info [RouterExplorer] Mapped {/api/users/me, PATCH} route
+2025-11-03 12:36:53 info [RouterExplorer] Mapped {/api/users/me/password, PATCH} route
+2025-11-03 12:36:53 info [RouterExplorer] Mapped {/api/users/me, DELETE} route
+2025-11-03 12:36:53 info [RoutesResolver] TasksController {/api/tasks}:
+2025-11-03 12:36:53 info [RouterExplorer] Mapped {/api/tasks, POST} route
+2025-11-03 12:36:53 info [RouterExplorer] Mapped {/api/tasks, GET} route
+2025-11-03 12:36:53 info [RouterExplorer] Mapped {/api/tasks/upcoming, GET} route
+2025-11-03 12:36:53 info [RouterExplorer] Mapped {/api/tasks/overdue, GET} route
+2025-11-03 12:36:53 info [RouterExplorer] Mapped {/api/tasks/count-by-status, GET} route
+2025-11-03 12:36:53 info [RouterExplorer] Mapped {/api/tasks/:id, GET} route
+2025-11-03 12:36:53 info [RouterExplorer] Mapped {/api/tasks/:id, PATCH} route
+2025-11-03 12:36:53 info [RouterExplorer] Mapped {/api/tasks/:id/toggle-complete, PATCH} route
+2025-11-03 12:36:53 info [RouterExplorer] Mapped {/api/tasks/:id/toggle-archive, PATCH} route
+2025-11-03 12:36:53 info [RouterExplorer] Mapped {/api/tasks/bulk-update-order, POST} route
+2025-11-03 12:36:53 info [RouterExplorer] Mapped {/api/tasks/:id, DELETE} route
+2025-11-03 12:36:53 info [RouterExplorer] Mapped {/api/tasks/bulk-delete, POST} route
+2025-11-03 12:36:53 info [RoutesResolver] CategoriesController {/api/categories}:
+2025-11-03 12:36:53 info [RouterExplorer] Mapped {/api/categories, POST} route
+2025-11-03 12:36:53 info [RouterExplorer] Mapped {/api/categories, GET} route
+2025-11-03 12:36:53 info [RouterExplorer] Mapped {/api/categories/task-counts, GET} route
+2025-11-03 12:36:53 info [RouterExplorer] Mapped {/api/categories/:id, GET} route
+2025-11-03 12:36:53 info [RouterExplorer] Mapped {/api/categories/:id, PATCH} route
+2025-11-03 12:36:53 info [RouterExplorer] Mapped {/api/categories/:id, DELETE} route
+2025-11-03 12:36:53 info [RoutesResolver] StatisticsController {/api/statistics}:
+2025-11-03 12:36:53 info [RouterExplorer] Mapped {/api/statistics/general, GET} route
+2025-11-03 12:36:53 info [RouterExplorer] Mapped {/api/statistics/by-priority, GET} route
+2025-11-03 12:36:53 info [RouterExplorer] Mapped {/api/statistics/by-category, GET} route
+2025-11-03 12:36:53 info [RouterExplorer] Mapped {/api/statistics/weekly-productivity, GET} route
+2025-11-03 12:36:53 info [RouterExplorer] Mapped {/api/statistics/monthly-productivity, GET} route
+2025-11-03 12:36:53 info [RoutesResolver] BackupController {/api/backup}:
+2025-11-03 12:36:53 info [RouterExplorer] Mapped {/api/backup/export, GET} route
+2025-11-03 12:36:53 info [RouterExplorer] Mapped {/api/backup/import, POST} route
+2025-11-03 12:36:53 info [RouterExplorer] Mapped {/api/backup/create, POST} route
+2025-11-03 12:36:53 info [RouterExplorer] Mapped {/api/backup/restore, POST} route
+2025-11-03 12:36:53 info [RouterExplorer] Mapped {/api/backup/delete-all, DELETE} route
+2025-11-03 12:36:53 info [NestApplication] Nest application successfully started
+2025-11-03 12:36:53 info [Bootstrap] 🚀 Aplicación ejecutándose en: http://localhost:4000/api
+2025-11-03 12:36:53 info [Bootstrap] 📚 Documentación Swagger en: http://localhost:4000/api/docs
+2025-11-03 12:36:53 info [Bootstrap] 🗄️  Base de datos: cluster0.djgh5us.mongodb.net/
+2025-11-03 12:56:51 info [NestFactory] Starting Nest application...
+2025-11-03 12:56:51 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 12:56:51 info [InstanceLoader] PassportModule dependencies initialized
+2025-11-03 12:56:51 info [InstanceLoader] ConfigHostModule dependencies initialized
+2025-11-03 12:56:51 info [InstanceLoader] ConfigModule dependencies initialized
+2025-11-03 12:56:51 info [InstanceLoader] ConfigModule dependencies initialized
+2025-11-03 12:56:51 info [InstanceLoader] ThrottlerModule dependencies initialized
+2025-11-03 12:56:51 info [InstanceLoader] JwtModule dependencies initialized
+2025-11-03 12:56:51 info [InstanceLoader] AppModule dependencies initialized
+2025-11-03 12:56:52 info [InstanceLoader] MongooseCoreModule dependencies initialized
+2025-11-03 12:56:52 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 12:56:52 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 12:56:52 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 12:56:52 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 12:56:52 info [InstanceLoader] UsersModule dependencies initialized
+2025-11-03 12:56:52 info [InstanceLoader] StatisticsModule dependencies initialized
+2025-11-03 12:56:52 info [InstanceLoader] TasksModule dependencies initialized
+2025-11-03 12:56:52 info [InstanceLoader] CategoriesModule dependencies initialized
+2025-11-03 12:56:52 info [InstanceLoader] BackupModule dependencies initialized
+2025-11-03 12:56:52 info [InstanceLoader] AuthModule dependencies initialized
+2025-11-03 12:56:52 info [RoutesResolver] AuthController {/api/auth}:
+2025-11-03 12:56:52 info [RouterExplorer] Mapped {/api/auth/register, POST} route
+2025-11-03 12:56:52 info [RouterExplorer] Mapped {/api/auth/login, POST} route
+2025-11-03 12:56:52 info [RouterExplorer] Mapped {/api/auth/refresh, POST} route
+2025-11-03 12:56:52 info [RouterExplorer] Mapped {/api/auth/logout, POST} route
+2025-11-03 12:56:52 info [RouterExplorer] Mapped {/api/auth/verify, POST} route
+2025-11-03 12:56:52 info [RoutesResolver] UsersController {/api/users}:
+2025-11-03 12:56:52 info [RouterExplorer] Mapped {/api/users/me, GET} route
+2025-11-03 12:56:52 info [RouterExplorer] Mapped {/api/users, GET} route
+2025-11-03 12:56:52 info [RouterExplorer] Mapped {/api/users/:id, GET} route
+2025-11-03 12:56:52 info [RouterExplorer] Mapped {/api/users/me, PATCH} route
+2025-11-03 12:56:52 info [RouterExplorer] Mapped {/api/users/me/password, PATCH} route
+2025-11-03 12:56:52 info [RouterExplorer] Mapped {/api/users/me, DELETE} route
+2025-11-03 12:56:52 info [RoutesResolver] TasksController {/api/tasks}:
+2025-11-03 12:56:52 info [RouterExplorer] Mapped {/api/tasks, POST} route
+2025-11-03 12:56:52 info [RouterExplorer] Mapped {/api/tasks, GET} route
+2025-11-03 12:56:52 info [RouterExplorer] Mapped {/api/tasks/upcoming, GET} route
+2025-11-03 12:56:52 info [RouterExplorer] Mapped {/api/tasks/overdue, GET} route
+2025-11-03 12:56:52 info [RouterExplorer] Mapped {/api/tasks/count-by-status, GET} route
+2025-11-03 12:56:52 info [RouterExplorer] Mapped {/api/tasks/:id, GET} route
+2025-11-03 12:56:52 info [RouterExplorer] Mapped {/api/tasks/:id, PATCH} route
+2025-11-03 12:56:52 info [RouterExplorer] Mapped {/api/tasks/:id/toggle-complete, PATCH} route
+2025-11-03 12:56:52 info [RouterExplorer] Mapped {/api/tasks/:id/toggle-archive, PATCH} route
+2025-11-03 12:56:52 info [RouterExplorer] Mapped {/api/tasks/bulk-update-order, POST} route
+2025-11-03 12:56:52 info [RouterExplorer] Mapped {/api/tasks/:id, DELETE} route
+2025-11-03 12:56:52 info [RouterExplorer] Mapped {/api/tasks/bulk-delete, POST} route
+2025-11-03 12:56:52 info [RoutesResolver] CategoriesController {/api/categories}:
+2025-11-03 12:56:52 info [RouterExplorer] Mapped {/api/categories, POST} route
+2025-11-03 12:56:52 info [RouterExplorer] Mapped {/api/categories, GET} route
+2025-11-03 12:56:52 info [RouterExplorer] Mapped {/api/categories/task-counts, GET} route
+2025-11-03 12:56:52 info [RouterExplorer] Mapped {/api/categories/:id, GET} route
+2025-11-03 12:56:52 info [RouterExplorer] Mapped {/api/categories/:id, PATCH} route
+2025-11-03 12:56:52 info [RouterExplorer] Mapped {/api/categories/:id, DELETE} route
+2025-11-03 12:56:52 info [RoutesResolver] StatisticsController {/api/statistics}:
+2025-11-03 12:56:52 info [RouterExplorer] Mapped {/api/statistics/general, GET} route
+2025-11-03 12:56:52 info [RouterExplorer] Mapped {/api/statistics/by-priority, GET} route
+2025-11-03 12:56:52 info [RouterExplorer] Mapped {/api/statistics/by-category, GET} route
+2025-11-03 12:56:52 info [RouterExplorer] Mapped {/api/statistics/weekly-productivity, GET} route
+2025-11-03 12:56:52 info [RouterExplorer] Mapped {/api/statistics/monthly-productivity, GET} route
+2025-11-03 12:56:52 info [RoutesResolver] BackupController {/api/backup}:
+2025-11-03 12:56:52 info [RouterExplorer] Mapped {/api/backup/export, GET} route
+2025-11-03 12:56:52 info [RouterExplorer] Mapped {/api/backup/import, POST} route
+2025-11-03 12:56:52 info [RouterExplorer] Mapped {/api/backup/create, POST} route
+2025-11-03 12:56:52 info [RouterExplorer] Mapped {/api/backup/restore, POST} route
+2025-11-03 12:56:52 info [RouterExplorer] Mapped {/api/backup/delete-all, DELETE} route
+2025-11-03 12:56:52 info [NestApplication] Nest application successfully started
+2025-11-03 12:56:52 info [Bootstrap] 🚀 Aplicación ejecutándose en: http://localhost:4000/api
+2025-11-03 12:56:52 info [Bootstrap] 📚 Documentación Swagger en: http://localhost:4000/api/docs
+2025-11-03 12:56:52 info [Bootstrap] 🗄️  Base de datos: cluster0.djgh5us.mongodb.net/
+2025-11-03 14:25:20 info [NestFactory] Starting Nest application...
+2025-11-03 14:25:20 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 14:25:20 info [InstanceLoader] PassportModule dependencies initialized
+2025-11-03 14:25:20 info [InstanceLoader] ConfigHostModule dependencies initialized
+2025-11-03 14:25:20 info [InstanceLoader] ConfigModule dependencies initialized
+2025-11-03 14:25:20 info [InstanceLoader] ConfigModule dependencies initialized
+2025-11-03 14:25:20 info [InstanceLoader] ThrottlerModule dependencies initialized
+2025-11-03 14:25:20 info [InstanceLoader] JwtModule dependencies initialized
+2025-11-03 14:25:20 info [InstanceLoader] AppModule dependencies initialized
+2025-11-03 14:25:21 info [InstanceLoader] MongooseCoreModule dependencies initialized
+2025-11-03 14:25:21 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 14:25:21 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 14:25:21 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 14:25:21 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 14:25:21 info [InstanceLoader] UsersModule dependencies initialized
+2025-11-03 14:25:21 info [InstanceLoader] StatisticsModule dependencies initialized
+2025-11-03 14:25:21 info [InstanceLoader] TasksModule dependencies initialized
+2025-11-03 14:25:21 info [InstanceLoader] CategoriesModule dependencies initialized
+2025-11-03 14:25:21 info [InstanceLoader] BackupModule dependencies initialized
+2025-11-03 14:25:21 info [InstanceLoader] AuthModule dependencies initialized
+2025-11-03 14:25:21 info [RoutesResolver] AuthController {/api/auth}:
+2025-11-03 14:25:21 info [RouterExplorer] Mapped {/api/auth/register, POST} route
+2025-11-03 14:25:21 info [RouterExplorer] Mapped {/api/auth/login, POST} route
+2025-11-03 14:25:21 info [RouterExplorer] Mapped {/api/auth/refresh, POST} route
+2025-11-03 14:25:21 info [RouterExplorer] Mapped {/api/auth/logout, POST} route
+2025-11-03 14:25:21 info [RouterExplorer] Mapped {/api/auth/verify, POST} route
+2025-11-03 14:25:21 info [RoutesResolver] UsersController {/api/users}:
+2025-11-03 14:25:21 info [RouterExplorer] Mapped {/api/users/me, GET} route
+2025-11-03 14:25:21 info [RouterExplorer] Mapped {/api/users, GET} route
+2025-11-03 14:25:21 info [RouterExplorer] Mapped {/api/users/:id, GET} route
+2025-11-03 14:25:21 info [RouterExplorer] Mapped {/api/users/me, PATCH} route
+2025-11-03 14:25:21 info [RouterExplorer] Mapped {/api/users/me/password, PATCH} route
+2025-11-03 14:25:21 info [RouterExplorer] Mapped {/api/users/me, DELETE} route
+2025-11-03 14:25:21 info [RoutesResolver] TasksController {/api/tasks}:
+2025-11-03 14:25:21 info [RouterExplorer] Mapped {/api/tasks, POST} route
+2025-11-03 14:25:21 info [RouterExplorer] Mapped {/api/tasks, GET} route
+2025-11-03 14:25:21 info [RouterExplorer] Mapped {/api/tasks/upcoming, GET} route
+2025-11-03 14:25:21 info [RouterExplorer] Mapped {/api/tasks/overdue, GET} route
+2025-11-03 14:25:21 info [RouterExplorer] Mapped {/api/tasks/count-by-status, GET} route
+2025-11-03 14:25:21 info [RouterExplorer] Mapped {/api/tasks/:id, GET} route
+2025-11-03 14:25:21 info [RouterExplorer] Mapped {/api/tasks/:id, PATCH} route
+2025-11-03 14:25:21 info [RouterExplorer] Mapped {/api/tasks/:id/toggle-complete, PATCH} route
+2025-11-03 14:25:21 info [RouterExplorer] Mapped {/api/tasks/:id/toggle-archive, PATCH} route
+2025-11-03 14:25:21 info [RouterExplorer] Mapped {/api/tasks/bulk-update-order, POST} route
+2025-11-03 14:25:21 info [RouterExplorer] Mapped {/api/tasks/:id, DELETE} route
+2025-11-03 14:25:21 info [RouterExplorer] Mapped {/api/tasks/bulk-delete, POST} route
+2025-11-03 14:25:21 info [RoutesResolver] CategoriesController {/api/categories}:
+2025-11-03 14:25:21 info [RouterExplorer] Mapped {/api/categories, POST} route
+2025-11-03 14:25:21 info [RouterExplorer] Mapped {/api/categories, GET} route
+2025-11-03 14:25:21 info [RouterExplorer] Mapped {/api/categories/task-counts, GET} route
+2025-11-03 14:25:21 info [RouterExplorer] Mapped {/api/categories/:id, GET} route
+2025-11-03 14:25:21 info [RouterExplorer] Mapped {/api/categories/:id, PATCH} route
+2025-11-03 14:25:21 info [RouterExplorer] Mapped {/api/categories/:id, DELETE} route
+2025-11-03 14:25:21 info [RoutesResolver] StatisticsController {/api/statistics}:
+2025-11-03 14:25:21 info [RouterExplorer] Mapped {/api/statistics/general, GET} route
+2025-11-03 14:25:21 info [RouterExplorer] Mapped {/api/statistics/by-priority, GET} route
+2025-11-03 14:25:21 info [RouterExplorer] Mapped {/api/statistics/by-category, GET} route
+2025-11-03 14:25:21 info [RouterExplorer] Mapped {/api/statistics/weekly-productivity, GET} route
+2025-11-03 14:25:21 info [RouterExplorer] Mapped {/api/statistics/monthly-productivity, GET} route
+2025-11-03 14:25:21 info [RoutesResolver] BackupController {/api/backup}:
+2025-11-03 14:25:21 info [RouterExplorer] Mapped {/api/backup/export, GET} route
+2025-11-03 14:25:21 info [RouterExplorer] Mapped {/api/backup/import, POST} route
+2025-11-03 14:25:21 info [RouterExplorer] Mapped {/api/backup/create, POST} route
+2025-11-03 14:25:21 info [RouterExplorer] Mapped {/api/backup/restore, POST} route
+2025-11-03 14:25:21 info [RouterExplorer] Mapped {/api/backup/delete-all, DELETE} route
+2025-11-03 14:25:21 info [NestApplication] Nest application successfully started
+2025-11-03 14:25:21 info [Bootstrap] 🚀 Aplicación ejecutándose en: http://localhost:4000/api
+2025-11-03 14:25:21 info [Bootstrap] 📚 Documentación Swagger en: http://localhost:4000/api/docs
+2025-11-03 14:25:21 info [Bootstrap] 🗄️  Base de datos: cluster0.djgh5us.mongodb.net/
+2025-11-03 14:29:08 info [AuthService] Intentando registrar nuevo usuario: carlosvlz
+2025-11-03 14:29:09 info [UsersService] Usuario creado exitosamente: carlosvlz
+2025-11-03 14:29:32 info [AuthService] Usuario autenticado: carlosvlz
+2025-11-03 14:33:06 info [TasksService] Tarea creada: Informe mensual por usuario 69090284194f3615f5e51d78
+2025-11-03 14:34:22 info [TasksService] Tarea creada: Reunión con proveedores por usuario 69090284194f3615f5e51d78
+2025-11-03 14:38:04 info [AuthService] Usuario autenticado: carlosvlz
+2025-11-03 14:49:02 info [AuthService] Usuario autenticado: carlosvlz
+2025-11-03 14:51:09 info [TasksService] Tarea actualizada: Informe mensual
+2025-11-03 14:51:29 info [TasksService] Tarea actualizada: Reunión con proveedores
+2025-11-03 14:51:33 info [TasksService] Tarea actualizada: Reunión con proveedores
+2025-11-03 14:51:35 info [TasksService] Tarea actualizada: Reunión con proveedores
+2025-11-03 14:51:36 info [TasksService] Tarea actualizada: Reunión con proveedores
+2025-11-03 14:51:49 info [TasksService] Tarea actualizada: Informe mensual
+2025-11-03 15:07:13 info [NestFactory] Starting Nest application...
+2025-11-03 15:07:13 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 15:07:13 info [InstanceLoader] PassportModule dependencies initialized
+2025-11-03 15:07:13 info [InstanceLoader] ConfigHostModule dependencies initialized
+2025-11-03 15:07:13 info [InstanceLoader] ConfigModule dependencies initialized
+2025-11-03 15:07:13 info [InstanceLoader] ConfigModule dependencies initialized
+2025-11-03 15:07:13 info [InstanceLoader] ThrottlerModule dependencies initialized
+2025-11-03 15:07:13 info [InstanceLoader] JwtModule dependencies initialized
+2025-11-03 15:07:13 info [InstanceLoader] AppModule dependencies initialized
+2025-11-03 15:07:43 error [MongooseModule] MongooseServerSelectionError: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017
+    at _handleConnectionErrors (/Users/cvelez/Documents/cun-project/node_modules/mongoose/lib/connection.js:1169:11)
+    at NativeConnection.asPromise (/Users/cvelez/Documents/cun-project/node_modules/mongoose/lib/connection.js:1639:11)
+    at async /Users/cvelez/Documents/cun-project/node_modules/@nestjs/mongoose/dist/mongoose-core.module.js:65:112
+2025-11-03 15:08:14 error [MongooseModule] MongooseServerSelectionError: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017
+    at _handleConnectionErrors (/Users/cvelez/Documents/cun-project/node_modules/mongoose/lib/connection.js:1169:11)
+    at NativeConnection.asPromise (/Users/cvelez/Documents/cun-project/node_modules/mongoose/lib/connection.js:1639:11)
+    at async /Users/cvelez/Documents/cun-project/node_modules/@nestjs/mongoose/dist/mongoose-core.module.js:65:112
+2025-11-03 15:08:45 error [MongooseModule] MongooseServerSelectionError: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017
+    at _handleConnectionErrors (/Users/cvelez/Documents/cun-project/node_modules/mongoose/lib/connection.js:1169:11)
+    at NativeConnection.asPromise (/Users/cvelez/Documents/cun-project/node_modules/mongoose/lib/connection.js:1639:11)
+    at async /Users/cvelez/Documents/cun-project/node_modules/@nestjs/mongoose/dist/mongoose-core.module.js:65:112
+2025-11-03 15:15:50 info [NestFactory] Starting Nest application...
+2025-11-03 15:15:50 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 15:15:50 info [InstanceLoader] PassportModule dependencies initialized
+2025-11-03 15:15:50 info [InstanceLoader] ConfigHostModule dependencies initialized
+2025-11-03 15:15:50 info [InstanceLoader] ConfigModule dependencies initialized
+2025-11-03 15:15:50 info [InstanceLoader] ConfigModule dependencies initialized
+2025-11-03 15:15:50 info [InstanceLoader] ThrottlerModule dependencies initialized
+2025-11-03 15:15:50 info [InstanceLoader] JwtModule dependencies initialized
+2025-11-03 15:15:50 info [InstanceLoader] AppModule dependencies initialized
+2025-11-03 15:15:52 info [InstanceLoader] MongooseCoreModule dependencies initialized
+2025-11-03 15:15:52 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 15:15:52 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 15:15:52 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 15:15:52 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 15:15:52 info [InstanceLoader] UsersModule dependencies initialized
+2025-11-03 15:15:52 info [InstanceLoader] StatisticsModule dependencies initialized
+2025-11-03 15:15:52 info [InstanceLoader] TasksModule dependencies initialized
+2025-11-03 15:15:52 info [InstanceLoader] CategoriesModule dependencies initialized
+2025-11-03 15:15:52 info [InstanceLoader] BackupModule dependencies initialized
+2025-11-03 15:15:52 info [InstanceLoader] AuthModule dependencies initialized
+2025-11-03 15:15:52 info [RoutesResolver] AuthController {/api/auth}:
+2025-11-03 15:15:52 info [RouterExplorer] Mapped {/api/auth/register, POST} route
+2025-11-03 15:15:52 info [RouterExplorer] Mapped {/api/auth/login, POST} route
+2025-11-03 15:15:52 info [RouterExplorer] Mapped {/api/auth/refresh, POST} route
+2025-11-03 15:15:52 info [RouterExplorer] Mapped {/api/auth/logout, POST} route
+2025-11-03 15:15:52 info [RouterExplorer] Mapped {/api/auth/verify, POST} route
+2025-11-03 15:15:52 info [RoutesResolver] UsersController {/api/users}:
+2025-11-03 15:15:52 info [RouterExplorer] Mapped {/api/users/me, GET} route
+2025-11-03 15:15:52 info [RouterExplorer] Mapped {/api/users, GET} route
+2025-11-03 15:15:52 info [RouterExplorer] Mapped {/api/users/:id, GET} route
+2025-11-03 15:15:52 info [RouterExplorer] Mapped {/api/users/me, PATCH} route
+2025-11-03 15:15:52 info [RouterExplorer] Mapped {/api/users/me/password, PATCH} route
+2025-11-03 15:15:52 info [RouterExplorer] Mapped {/api/users/me, DELETE} route
+2025-11-03 15:15:52 info [RoutesResolver] TasksController {/api/tasks}:
+2025-11-03 15:15:52 info [RouterExplorer] Mapped {/api/tasks, POST} route
+2025-11-03 15:15:52 info [RouterExplorer] Mapped {/api/tasks, GET} route
+2025-11-03 15:15:52 info [RouterExplorer] Mapped {/api/tasks/upcoming, GET} route
+2025-11-03 15:15:52 info [RouterExplorer] Mapped {/api/tasks/overdue, GET} route
+2025-11-03 15:15:52 info [RouterExplorer] Mapped {/api/tasks/count-by-status, GET} route
+2025-11-03 15:15:52 info [RouterExplorer] Mapped {/api/tasks/:id, GET} route
+2025-11-03 15:15:52 info [RouterExplorer] Mapped {/api/tasks/:id, PATCH} route
+2025-11-03 15:15:52 info [RouterExplorer] Mapped {/api/tasks/:id/toggle-complete, PATCH} route
+2025-11-03 15:15:52 info [RouterExplorer] Mapped {/api/tasks/:id/toggle-archive, PATCH} route
+2025-11-03 15:15:52 info [RouterExplorer] Mapped {/api/tasks/bulk-update-order, POST} route
+2025-11-03 15:15:52 info [RouterExplorer] Mapped {/api/tasks/:id, DELETE} route
+2025-11-03 15:15:52 info [RouterExplorer] Mapped {/api/tasks/bulk-delete, POST} route
+2025-11-03 15:15:52 info [RoutesResolver] CategoriesController {/api/categories}:
+2025-11-03 15:15:52 info [RouterExplorer] Mapped {/api/categories, POST} route
+2025-11-03 15:15:52 info [RouterExplorer] Mapped {/api/categories, GET} route
+2025-11-03 15:15:52 info [RouterExplorer] Mapped {/api/categories/task-counts, GET} route
+2025-11-03 15:15:52 info [RouterExplorer] Mapped {/api/categories/:id, GET} route
+2025-11-03 15:15:52 info [RouterExplorer] Mapped {/api/categories/:id, PATCH} route
+2025-11-03 15:15:52 info [RouterExplorer] Mapped {/api/categories/:id, DELETE} route
+2025-11-03 15:15:52 info [RoutesResolver] StatisticsController {/api/statistics}:
+2025-11-03 15:15:52 info [RouterExplorer] Mapped {/api/statistics/general, GET} route
+2025-11-03 15:15:52 info [RouterExplorer] Mapped {/api/statistics/by-priority, GET} route
+2025-11-03 15:15:52 info [RouterExplorer] Mapped {/api/statistics/by-category, GET} route
+2025-11-03 15:15:52 info [RouterExplorer] Mapped {/api/statistics/weekly-productivity, GET} route
+2025-11-03 15:15:52 info [RouterExplorer] Mapped {/api/statistics/monthly-productivity, GET} route
+2025-11-03 15:15:52 info [RoutesResolver] BackupController {/api/backup}:
+2025-11-03 15:15:52 info [RouterExplorer] Mapped {/api/backup/export, GET} route
+2025-11-03 15:15:52 info [RouterExplorer] Mapped {/api/backup/import, POST} route
+2025-11-03 15:15:52 info [RouterExplorer] Mapped {/api/backup/create, POST} route
+2025-11-03 15:15:52 info [RouterExplorer] Mapped {/api/backup/restore, POST} route
+2025-11-03 15:15:52 info [RouterExplorer] Mapped {/api/backup/delete-all, DELETE} route
+2025-11-03 15:15:52 info [NestApplication] Nest application successfully started
+2025-11-03 15:15:52 info [Bootstrap] 🚀 Aplicación ejecutándose en: http://localhost:4000/api
+2025-11-03 15:15:52 info [Bootstrap] 📚 Documentación Swagger en: http://localhost:4000/api/docs
+2025-11-03 15:15:52 info [Bootstrap] 🗄️  Base de datos: cluster0.djgh5us.mongodb.net
+2025-11-03 15:16:07 info [AuthService] Usuario autenticado: carlosvlz
+2025-11-03 15:17:59 info [TasksService] Tarea actualizada: Informe mensual
+2025-11-03 15:21:52 info [TasksService] Tarea actualizada: Reunión con proveedores
+2025-11-03 15:22:00 info [TasksService] Tarea actualizada: Informe mensual
+2025-11-03 15:22:37 info [AuthService] Usuario autenticado: carlosvlz
+2025-11-03 15:31:44 info [CategoriesService] Categoría creada: Trabajo por usuario 69090284194f3615f5e51d78
+2025-11-03 15:36:50 info [NestFactory] Starting Nest application...
+2025-11-03 15:36:50 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 15:36:50 info [InstanceLoader] PassportModule dependencies initialized
+2025-11-03 15:36:50 info [InstanceLoader] ConfigHostModule dependencies initialized
+2025-11-03 15:36:50 info [InstanceLoader] ConfigModule dependencies initialized
+2025-11-03 15:36:50 info [InstanceLoader] ConfigModule dependencies initialized
+2025-11-03 15:36:50 info [InstanceLoader] ThrottlerModule dependencies initialized
+2025-11-03 15:36:50 info [InstanceLoader] JwtModule dependencies initialized
+2025-11-03 15:36:50 info [InstanceLoader] AppModule dependencies initialized
+2025-11-03 15:36:51 info [NestFactory] Starting Nest application...
+2025-11-03 15:36:51 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 15:36:51 info [InstanceLoader] PassportModule dependencies initialized
+2025-11-03 15:36:51 info [InstanceLoader] ConfigHostModule dependencies initialized
+2025-11-03 15:36:51 info [InstanceLoader] ConfigModule dependencies initialized
+2025-11-03 15:36:51 info [InstanceLoader] ConfigModule dependencies initialized
+2025-11-03 15:36:51 info [InstanceLoader] ThrottlerModule dependencies initialized
+2025-11-03 15:36:51 info [InstanceLoader] JwtModule dependencies initialized
+2025-11-03 15:36:51 info [InstanceLoader] AppModule dependencies initialized
+2025-11-03 15:36:52 info [InstanceLoader] MongooseCoreModule dependencies initialized
+2025-11-03 15:36:52 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 15:36:52 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 15:36:52 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 15:36:52 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 15:36:52 info [InstanceLoader] UsersModule dependencies initialized
+2025-11-03 15:36:52 info [InstanceLoader] StatisticsModule dependencies initialized
+2025-11-03 15:36:52 info [InstanceLoader] TasksModule dependencies initialized
+2025-11-03 15:36:52 info [InstanceLoader] CategoriesModule dependencies initialized
+2025-11-03 15:36:52 info [InstanceLoader] BackupModule dependencies initialized
+2025-11-03 15:36:52 info [InstanceLoader] AuthModule dependencies initialized
+2025-11-03 15:36:52 info [RoutesResolver] AuthController {/api/auth}:
+2025-11-03 15:36:52 info [RouterExplorer] Mapped {/api/auth/register, POST} route
+2025-11-03 15:36:52 info [RouterExplorer] Mapped {/api/auth/login, POST} route
+2025-11-03 15:36:52 info [RouterExplorer] Mapped {/api/auth/refresh, POST} route
+2025-11-03 15:36:52 info [RouterExplorer] Mapped {/api/auth/logout, POST} route
+2025-11-03 15:36:52 info [RouterExplorer] Mapped {/api/auth/verify, POST} route
+2025-11-03 15:36:52 info [RoutesResolver] UsersController {/api/users}:
+2025-11-03 15:36:52 info [RouterExplorer] Mapped {/api/users/me, GET} route
+2025-11-03 15:36:52 info [RouterExplorer] Mapped {/api/users, GET} route
+2025-11-03 15:36:52 info [RouterExplorer] Mapped {/api/users/:id, GET} route
+2025-11-03 15:36:52 info [RouterExplorer] Mapped {/api/users/me, PATCH} route
+2025-11-03 15:36:52 info [RouterExplorer] Mapped {/api/users/me/password, PATCH} route
+2025-11-03 15:36:52 info [RouterExplorer] Mapped {/api/users/me, DELETE} route
+2025-11-03 15:36:52 info [RoutesResolver] TasksController {/api/tasks}:
+2025-11-03 15:36:52 info [RouterExplorer] Mapped {/api/tasks, POST} route
+2025-11-03 15:36:52 info [RouterExplorer] Mapped {/api/tasks, GET} route
+2025-11-03 15:36:52 info [RouterExplorer] Mapped {/api/tasks/upcoming, GET} route
+2025-11-03 15:36:52 info [RouterExplorer] Mapped {/api/tasks/overdue, GET} route
+2025-11-03 15:36:52 info [RouterExplorer] Mapped {/api/tasks/count-by-status, GET} route
+2025-11-03 15:36:52 info [RouterExplorer] Mapped {/api/tasks/:id, GET} route
+2025-11-03 15:36:52 info [RouterExplorer] Mapped {/api/tasks/:id, PATCH} route
+2025-11-03 15:36:52 info [RouterExplorer] Mapped {/api/tasks/:id/toggle-complete, PATCH} route
+2025-11-03 15:36:52 info [RouterExplorer] Mapped {/api/tasks/:id/toggle-archive, PATCH} route
+2025-11-03 15:36:52 info [RouterExplorer] Mapped {/api/tasks/bulk-update-order, POST} route
+2025-11-03 15:36:52 info [RouterExplorer] Mapped {/api/tasks/:id, DELETE} route
+2025-11-03 15:36:52 info [RouterExplorer] Mapped {/api/tasks/bulk-delete, POST} route
+2025-11-03 15:36:52 info [RoutesResolver] CategoriesController {/api/categories}:
+2025-11-03 15:36:52 info [RouterExplorer] Mapped {/api/categories, POST} route
+2025-11-03 15:36:52 info [RouterExplorer] Mapped {/api/categories, GET} route
+2025-11-03 15:36:52 info [RouterExplorer] Mapped {/api/categories/task-counts, GET} route
+2025-11-03 15:36:52 info [RouterExplorer] Mapped {/api/categories/:id, GET} route
+2025-11-03 15:36:52 info [RouterExplorer] Mapped {/api/categories/:id, PATCH} route
+2025-11-03 15:36:52 info [RouterExplorer] Mapped {/api/categories/:id, DELETE} route
+2025-11-03 15:36:52 info [RoutesResolver] StatisticsController {/api/statistics}:
+2025-11-03 15:36:52 info [RouterExplorer] Mapped {/api/statistics/general, GET} route
+2025-11-03 15:36:52 info [RouterExplorer] Mapped {/api/statistics/by-priority, GET} route
+2025-11-03 15:36:52 info [RouterExplorer] Mapped {/api/statistics/by-category, GET} route
+2025-11-03 15:36:52 info [RouterExplorer] Mapped {/api/statistics/weekly-productivity, GET} route
+2025-11-03 15:36:52 info [RouterExplorer] Mapped {/api/statistics/monthly-productivity, GET} route
+2025-11-03 15:36:52 info [RoutesResolver] BackupController {/api/backup}:
+2025-11-03 15:36:52 info [RouterExplorer] Mapped {/api/backup/export, GET} route
+2025-11-03 15:36:52 info [RouterExplorer] Mapped {/api/backup/import, POST} route
+2025-11-03 15:36:52 info [RouterExplorer] Mapped {/api/backup/create, POST} route
+2025-11-03 15:36:52 info [RouterExplorer] Mapped {/api/backup/restore, POST} route
+2025-11-03 15:36:52 info [RouterExplorer] Mapped {/api/backup/delete-all, DELETE} route
+2025-11-03 15:36:52 info [NestApplication] Nest application successfully started
+2025-11-03 15:36:52 info [Bootstrap] 🚀 Aplicación ejecutándose en: http://localhost:4000/api
+2025-11-03 15:36:52 info [Bootstrap] 📚 Documentación Swagger en: http://localhost:4000/api/docs
+2025-11-03 15:36:52 info [Bootstrap] 🗄️  Base de datos: cluster0.djgh5us.mongodb.net
+2025-11-03 15:37:03 info [NestFactory] Starting Nest application...
+2025-11-03 15:37:03 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 15:37:03 info [InstanceLoader] PassportModule dependencies initialized
+2025-11-03 15:37:03 info [InstanceLoader] ConfigHostModule dependencies initialized
+2025-11-03 15:37:03 info [InstanceLoader] ConfigModule dependencies initialized
+2025-11-03 15:37:03 info [InstanceLoader] ConfigModule dependencies initialized
+2025-11-03 15:37:03 info [InstanceLoader] ThrottlerModule dependencies initialized
+2025-11-03 15:37:03 info [InstanceLoader] JwtModule dependencies initialized
+2025-11-03 15:37:03 info [InstanceLoader] AppModule dependencies initialized
+2025-11-03 15:37:04 info [NestFactory] Starting Nest application...
+2025-11-03 15:37:04 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 15:37:04 info [InstanceLoader] PassportModule dependencies initialized
+2025-11-03 15:37:04 info [InstanceLoader] ConfigHostModule dependencies initialized
+2025-11-03 15:37:04 info [InstanceLoader] ConfigModule dependencies initialized
+2025-11-03 15:37:04 info [InstanceLoader] ConfigModule dependencies initialized
+2025-11-03 15:37:04 info [InstanceLoader] ThrottlerModule dependencies initialized
+2025-11-03 15:37:04 info [InstanceLoader] JwtModule dependencies initialized
+2025-11-03 15:37:04 info [InstanceLoader] AppModule dependencies initialized
+2025-11-03 15:37:05 info [InstanceLoader] MongooseCoreModule dependencies initialized
+2025-11-03 15:37:05 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 15:37:05 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 15:37:05 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 15:37:05 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 15:37:05 info [InstanceLoader] UsersModule dependencies initialized
+2025-11-03 15:37:05 info [InstanceLoader] StatisticsModule dependencies initialized
+2025-11-03 15:37:05 info [InstanceLoader] TasksModule dependencies initialized
+2025-11-03 15:37:05 info [InstanceLoader] CategoriesModule dependencies initialized
+2025-11-03 15:37:05 info [InstanceLoader] BackupModule dependencies initialized
+2025-11-03 15:37:05 info [InstanceLoader] AuthModule dependencies initialized
+2025-11-03 15:37:05 info [RoutesResolver] AuthController {/api/auth}:
+2025-11-03 15:37:05 info [RouterExplorer] Mapped {/api/auth/register, POST} route
+2025-11-03 15:37:05 info [RouterExplorer] Mapped {/api/auth/login, POST} route
+2025-11-03 15:37:05 info [RouterExplorer] Mapped {/api/auth/refresh, POST} route
+2025-11-03 15:37:05 info [RouterExplorer] Mapped {/api/auth/logout, POST} route
+2025-11-03 15:37:05 info [RouterExplorer] Mapped {/api/auth/verify, POST} route
+2025-11-03 15:37:05 info [RoutesResolver] UsersController {/api/users}:
+2025-11-03 15:37:05 info [RouterExplorer] Mapped {/api/users/me, GET} route
+2025-11-03 15:37:05 info [RouterExplorer] Mapped {/api/users, GET} route
+2025-11-03 15:37:05 info [RouterExplorer] Mapped {/api/users/:id, GET} route
+2025-11-03 15:37:05 info [RouterExplorer] Mapped {/api/users/me, PATCH} route
+2025-11-03 15:37:05 info [RouterExplorer] Mapped {/api/users/me/password, PATCH} route
+2025-11-03 15:37:05 info [RouterExplorer] Mapped {/api/users/me, DELETE} route
+2025-11-03 15:37:05 info [RoutesResolver] TasksController {/api/tasks}:
+2025-11-03 15:37:05 info [RouterExplorer] Mapped {/api/tasks, POST} route
+2025-11-03 15:37:05 info [RouterExplorer] Mapped {/api/tasks, GET} route
+2025-11-03 15:37:05 info [RouterExplorer] Mapped {/api/tasks/upcoming, GET} route
+2025-11-03 15:37:05 info [RouterExplorer] Mapped {/api/tasks/overdue, GET} route
+2025-11-03 15:37:05 info [RouterExplorer] Mapped {/api/tasks/count-by-status, GET} route
+2025-11-03 15:37:05 info [RouterExplorer] Mapped {/api/tasks/:id, GET} route
+2025-11-03 15:37:05 info [RouterExplorer] Mapped {/api/tasks/:id, PATCH} route
+2025-11-03 15:37:05 info [RouterExplorer] Mapped {/api/tasks/:id/toggle-complete, PATCH} route
+2025-11-03 15:37:05 info [RouterExplorer] Mapped {/api/tasks/:id/toggle-archive, PATCH} route
+2025-11-03 15:37:05 info [RouterExplorer] Mapped {/api/tasks/bulk-update-order, POST} route
+2025-11-03 15:37:05 info [RouterExplorer] Mapped {/api/tasks/:id, DELETE} route
+2025-11-03 15:37:05 info [RouterExplorer] Mapped {/api/tasks/bulk-delete, POST} route
+2025-11-03 15:37:05 info [RoutesResolver] CategoriesController {/api/categories}:
+2025-11-03 15:37:05 info [RouterExplorer] Mapped {/api/categories, POST} route
+2025-11-03 15:37:05 info [RouterExplorer] Mapped {/api/categories, GET} route
+2025-11-03 15:37:05 info [RouterExplorer] Mapped {/api/categories/task-counts, GET} route
+2025-11-03 15:37:05 info [RouterExplorer] Mapped {/api/categories/:id, GET} route
+2025-11-03 15:37:05 info [RouterExplorer] Mapped {/api/categories/:id, PATCH} route
+2025-11-03 15:37:05 info [RouterExplorer] Mapped {/api/categories/:id, DELETE} route
+2025-11-03 15:37:05 info [RoutesResolver] StatisticsController {/api/statistics}:
+2025-11-03 15:37:05 info [RouterExplorer] Mapped {/api/statistics/general, GET} route
+2025-11-03 15:37:05 info [RouterExplorer] Mapped {/api/statistics/by-priority, GET} route
+2025-11-03 15:37:05 info [RouterExplorer] Mapped {/api/statistics/by-category, GET} route
+2025-11-03 15:37:05 info [RouterExplorer] Mapped {/api/statistics/weekly-productivity, GET} route
+2025-11-03 15:37:05 info [RouterExplorer] Mapped {/api/statistics/monthly-productivity, GET} route
+2025-11-03 15:37:05 info [RoutesResolver] BackupController {/api/backup}:
+2025-11-03 15:37:05 info [RouterExplorer] Mapped {/api/backup/export, GET} route
+2025-11-03 15:37:05 info [RouterExplorer] Mapped {/api/backup/import, POST} route
+2025-11-03 15:37:05 info [RouterExplorer] Mapped {/api/backup/create, POST} route
+2025-11-03 15:37:05 info [RouterExplorer] Mapped {/api/backup/restore, POST} route
+2025-11-03 15:37:05 info [RouterExplorer] Mapped {/api/backup/delete-all, DELETE} route
+2025-11-03 15:37:05 info [NestApplication] Nest application successfully started
+2025-11-03 15:37:05 info [Bootstrap] 🚀 Aplicación ejecutándose en: http://localhost:4000/api
+2025-11-03 15:37:05 info [Bootstrap] 📚 Documentación Swagger en: http://localhost:4000/api/docs
+2025-11-03 15:37:05 info [Bootstrap] 🗄️  Base de datos: cluster0.djgh5us.mongodb.net
+2025-11-03 15:37:17 info [NestFactory] Starting Nest application...
+2025-11-03 15:37:17 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 15:37:17 info [InstanceLoader] PassportModule dependencies initialized
+2025-11-03 15:37:17 info [InstanceLoader] ConfigHostModule dependencies initialized
+2025-11-03 15:37:17 info [InstanceLoader] ConfigModule dependencies initialized
+2025-11-03 15:37:17 info [InstanceLoader] ConfigModule dependencies initialized
+2025-11-03 15:37:17 info [InstanceLoader] ThrottlerModule dependencies initialized
+2025-11-03 15:37:17 info [InstanceLoader] JwtModule dependencies initialized
+2025-11-03 15:37:17 info [InstanceLoader] AppModule dependencies initialized
+2025-11-03 15:37:18 info [InstanceLoader] MongooseCoreModule dependencies initialized
+2025-11-03 15:37:18 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 15:37:18 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 15:37:18 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 15:37:18 info [InstanceLoader] MongooseModule dependencies initialized
+2025-11-03 15:37:18 info [InstanceLoader] UsersModule dependencies initialized
+2025-11-03 15:37:18 info [InstanceLoader] StatisticsModule dependencies initialized
+2025-11-03 15:37:18 info [InstanceLoader] TasksModule dependencies initialized
+2025-11-03 15:37:18 info [InstanceLoader] CategoriesModule dependencies initialized
+2025-11-03 15:37:18 info [InstanceLoader] BackupModule dependencies initialized
+2025-11-03 15:37:18 info [InstanceLoader] AuthModule dependencies initialized
+2025-11-03 15:37:18 info [RoutesResolver] AuthController {/api/auth}:
+2025-11-03 15:37:18 info [RouterExplorer] Mapped {/api/auth/register, POST} route
+2025-11-03 15:37:18 info [RouterExplorer] Mapped {/api/auth/login, POST} route
+2025-11-03 15:37:18 info [RouterExplorer] Mapped {/api/auth/refresh, POST} route
+2025-11-03 15:37:18 info [RouterExplorer] Mapped {/api/auth/logout, POST} route
+2025-11-03 15:37:18 info [RouterExplorer] Mapped {/api/auth/verify, POST} route
+2025-11-03 15:37:18 info [RoutesResolver] UsersController {/api/users}:
+2025-11-03 15:37:18 info [RouterExplorer] Mapped {/api/users/me, GET} route
+2025-11-03 15:37:18 info [RouterExplorer] Mapped {/api/users, GET} route
+2025-11-03 15:37:18 info [RouterExplorer] Mapped {/api/users/:id, GET} route
+2025-11-03 15:37:18 info [RouterExplorer] Mapped {/api/users/me, PATCH} route
+2025-11-03 15:37:18 info [RouterExplorer] Mapped {/api/users/me/password, PATCH} route
+2025-11-03 15:37:18 info [RouterExplorer] Mapped {/api/users/me, DELETE} route
+2025-11-03 15:37:18 info [RoutesResolver] TasksController {/api/tasks}:
+2025-11-03 15:37:18 info [RouterExplorer] Mapped {/api/tasks, POST} route
+2025-11-03 15:37:18 info [RouterExplorer] Mapped {/api/tasks, GET} route
+2025-11-03 15:37:18 info [RouterExplorer] Mapped {/api/tasks/upcoming, GET} route
+2025-11-03 15:37:18 info [RouterExplorer] Mapped {/api/tasks/overdue, GET} route
+2025-11-03 15:37:18 info [RouterExplorer] Mapped {/api/tasks/count-by-status, GET} route
+2025-11-03 15:37:18 info [RouterExplorer] Mapped {/api/tasks/:id, GET} route
+2025-11-03 15:37:18 info [RouterExplorer] Mapped {/api/tasks/:id, PATCH} route
+2025-11-03 15:37:18 info [RouterExplorer] Mapped {/api/tasks/:id/toggle-complete, PATCH} route
+2025-11-03 15:37:18 info [RouterExplorer] Mapped {/api/tasks/:id/toggle-archive, PATCH} route
+2025-11-03 15:37:18 info [RouterExplorer] Mapped {/api/tasks/bulk-update-order, POST} route
+2025-11-03 15:37:18 info [RouterExplorer] Mapped {/api/tasks/:id, DELETE} route
+2025-11-03 15:37:18 info [RouterExplorer] Mapped {/api/tasks/bulk-delete, POST} route
+2025-11-03 15:37:18 info [RoutesResolver] CategoriesController {/api/categories}:
+2025-11-03 15:37:18 info [RouterExplorer] Mapped {/api/categories, POST} route
+2025-11-03 15:37:18 info [RouterExplorer] Mapped {/api/categories, GET} route
+2025-11-03 15:37:18 info [RouterExplorer] Mapped {/api/categories/task-counts, GET} route
+2025-11-03 15:37:18 info [RouterExplorer] Mapped {/api/categories/:id, GET} route
+2025-11-03 15:37:18 info [RouterExplorer] Mapped {/api/categories/:id, PATCH} route
+2025-11-03 15:37:18 info [RouterExplorer] Mapped {/api/categories/:id, DELETE} route
+2025-11-03 15:37:18 info [RoutesResolver] StatisticsController {/api/statistics}:
+2025-11-03 15:37:18 info [RouterExplorer] Mapped {/api/statistics/general, GET} route
+2025-11-03 15:37:18 info [RouterExplorer] Mapped {/api/statistics/by-priority, GET} route
+2025-11-03 15:37:18 info [RouterExplorer] Mapped {/api/statistics/by-category, GET} route
+2025-11-03 15:37:18 info [RouterExplorer] Mapped {/api/statistics/weekly-productivity, GET} route
+2025-11-03 15:37:18 info [RouterExplorer] Mapped {/api/statistics/monthly-productivity, GET} route
+2025-11-03 15:37:18 info [RoutesResolver] BackupController {/api/backup}:
+2025-11-03 15:37:18 info [RouterExplorer] Mapped {/api/backup/export, GET} route
+2025-11-03 15:37:18 info [RouterExplorer] Mapped {/api/backup/import, POST} route
+2025-11-03 15:37:18 info [RouterExplorer] Mapped {/api/backup/create, POST} route
+2025-11-03 15:37:18 info [RouterExplorer] Mapped {/api/backup/restore, POST} route
+2025-11-03 15:37:18 info [RouterExplorer] Mapped {/api/backup/delete-all, DELETE} route
+2025-11-03 15:37:18 info [NestApplication] Nest application successfully started
+2025-11-03 15:37:18 info [Bootstrap] 🚀 Aplicación ejecutándose en: http://localhost:4000/api
+2025-11-03 15:37:18 info [Bootstrap] 📚 Documentación Swagger en: http://localhost:4000/api/docs
+2025-11-03 15:37:18 info [Bootstrap] 🗄️  Base de datos: cluster0.djgh5us.mongodb.net
+2025-11-03 15:38:08 info [TasksService] Tarea actualizada: Reunión con proveedores
+2025-11-03 15:48:19 info [AuthService] Usuario autenticado: carlosvlz
+2025-11-03 15:54:24 info [AuthService] Usuario autenticado: carlosvlz
+2025-11-03 16:05:54 info [AuthService] Usuario autenticado: carlosvlz
+2025-11-03 16:06:33 info [TasksService] Tarea actualizada: Informe mensual
+2025-11-03 16:07:29 info [AuthService] Usuario autenticado: carlosvlz

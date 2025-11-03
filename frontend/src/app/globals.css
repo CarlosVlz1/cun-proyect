@@ -1,0 +1,202 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light Theme */
+    --background: 0 0% 98%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 180 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 300 100% 25%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 280 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 100% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 180 100% 50%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 3%;
+    --foreground: 180 100% 97%;
+    --card: 0 0% 6%;
+    --card-foreground: 180 100% 97%;
+    --popover: 0 0% 6%;
+    --popover-foreground: 180 100% 97%;
+    --primary: 180 100% 50%;
+    --primary-foreground: 0 0% 3%;
+    --secondary: 300 100% 25%;
+    --secondary-foreground: 180 100% 97%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 180 30% 70%;
+    --accent: 280 100% 50%;
+    --accent-foreground: 180 100% 97%;
+    --destructive: 0 100% 60%;
+    --destructive-foreground: 180 100% 97%;
+    --border: 180 50% 25%;
+    --input: 180 50% 15%;
+    --ring: 180 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background-color: #f8fafc;
+    min-height: 100vh;
+  }
+}
+
+/* Scrollbar personalizado con estilo neon */
+@layer utilities {
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #06b6d4, #ec4899);
+    border-radius: 10px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    box-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+  }
+}
+
+/* Efectos neon y animaciones */
+@layer utilities {
+  .neon-glow {
+    box-shadow: 
+      0 0 5px currentColor,
+      0 0 10px currentColor,
+      0 0 15px currentColor,
+      0 0 20px currentColor;
+  }
+
+  .neon-glow-cyan {
+    box-shadow: 
+      0 0 4px rgba(6, 182, 212, 0.4),
+      0 0 8px rgba(6, 182, 212, 0.2);
+  }
+
+  .neon-glow-magenta {
+    box-shadow: 
+      0 0 4px rgba(236, 72, 153, 0.4),
+      0 0 8px rgba(236, 72, 153, 0.2);
+  }
+
+  .neon-border {
+    border: 1px solid currentColor;
+    box-shadow: 
+      inset 0 0 10px currentColor,
+      0 0 5px currentColor;
+  }
+
+  .gradient-neon {
+    background: linear-gradient(135deg, #00ffff, #ff00ff, #00ffff);
+    background-size: 200% 200%;
+    animation: gradient-shift 3s ease infinite;
+  }
+
+  .text-neon-cyan {
+    color: #06b6d4;
+    text-shadow: 
+      0 0 3px rgba(6, 182, 212, 0.5),
+      0 0 6px rgba(6, 182, 212, 0.3);
+  }
+
+  .text-neon-magenta {
+    color: #ec4899;
+    text-shadow: 
+      0 0 3px rgba(236, 72, 153, 0.5),
+      0 0 6px rgba(236, 72, 153, 0.3);
+  }
+
+  .text-neon-purple {
+    color: #8b5cf6;
+    text-shadow: 
+      0 0 3px rgba(139, 92, 246, 0.5),
+      0 0 6px rgba(139, 92, 246, 0.3);
+  }
+
+  .animate-pulse-neon {
+    animation: pulse-neon 2s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(6, 182, 212, 0.3);
+  }
+
+  .grid-pattern {
+    background-image: 
+      linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes pulse-neon {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 
+      0 0 4px currentColor,
+      0 0 8px currentColor;
+  }
+  50% {
+    opacity: 0.9;
+    box-shadow: 
+      0 0 6px currentColor,
+      0 0 12px currentColor;
+  }
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 
+      0 0 3px currentColor,
+      0 0 6px currentColor;
+  }
+  to {
+    text-shadow: 
+      0 0 5px currentColor,
+      0 0 10px currentColor;
+  }
+}
+

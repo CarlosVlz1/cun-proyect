@@ -1,0 +1,10 @@
+{
+  "/login/page": "app/login/page.js",
+  "/dashboard/page": "app/dashboard/page.js",
+  "/tasks/[id]/page": "app/tasks/[id]/page.js",
+  "/profile/page": "app/profile/page.js",
+  "/statistics/page": "app/statistics/page.js",
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
+  "/tasks/page": "app/tasks/page.js",
+  "/categories/page": "app/categories/page.js"
+}
