@@ -171,20 +171,49 @@ export const theme = createTheme({
         root: {
           '& .MuiOutlinedInput-root': {
             borderRadius: 10,
-            backgroundColor: '#ffffff',
+            backgroundColor: '#ffffff !important',
+            color: '#0f172a !important',
             transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
+            '& input': {
+              color: '#0f172a !important',
+              backgroundColor: 'transparent !important',
+            },
             '& fieldset': {
               borderColor: 'rgba(15, 23, 42, 0.16)',
               borderWidth: '1.5px',
             },
+            '&:hover': {
+              backgroundColor: '#ffffff !important',
+              '& input': {
+                color: '#0f172a !important',
+                backgroundColor: 'transparent !important',
+              },
+            },
             '&:hover fieldset': {
               borderColor: 'rgba(99, 102, 241, 0.5)',
+            },
+            '&.Mui-focused': {
+              backgroundColor: '#ffffff !important',
+              '& input': {
+                color: '#0f172a !important',
+                backgroundColor: 'transparent !important',
+              },
             },
             '&.Mui-focused fieldset': {
               borderColor: '#6366f1',
               borderWidth: '2px',
               boxShadow: '0 0 0 3px rgba(99, 102, 241, 0.1)',
             },
+            '&.Mui-disabled': {
+              backgroundColor: 'rgba(0, 0, 0, 0.04) !important',
+              '& input': {
+                color: 'rgba(0, 0, 0, 0.38) !important',
+              },
+            },
+          },
+          '& .MuiInputBase-input': {
+            color: '#0f172a !important',
+            backgroundColor: 'transparent !important',
           },
           '& .MuiInputLabel-root': {
             color: '#64748b',
@@ -192,6 +221,36 @@ export const theme = createTheme({
               color: '#6366f1',
             },
           },
+        },
+      },
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          backgroundColor: '#ffffff !important',
+          color: '#0f172a !important',
+          '& input': {
+            color: '#0f172a !important',
+            backgroundColor: 'transparent !important',
+          },
+          '&:hover': {
+            backgroundColor: '#ffffff !important',
+            '& input': {
+              color: '#0f172a !important',
+              backgroundColor: 'transparent !important',
+            },
+          },
+          '&.Mui-focused': {
+            backgroundColor: '#ffffff !important',
+            '& input': {
+              color: '#0f172a !important',
+              backgroundColor: 'transparent !important',
+            },
+          },
+        },
+        input: {
+          color: '#0f172a !important',
+          backgroundColor: 'transparent !important',
         },
       },
     },
