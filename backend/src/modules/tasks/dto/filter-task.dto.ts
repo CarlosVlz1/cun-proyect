@@ -23,14 +23,6 @@ export class FilterTaskDto {
   priority?: TaskPriority;
 
   @ApiProperty({
-    description: 'Filtrar por categoría',
-    required: false,
-  })
-  @IsOptional()
-  @IsMongoId()
-  category?: string;
-
-  @ApiProperty({
     description: 'Filtrar por etiqueta',
     required: false,
   })

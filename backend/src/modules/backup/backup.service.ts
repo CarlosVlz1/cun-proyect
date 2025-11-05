@@ -2,7 +2,6 @@ import { Injectable, Logger, BadRequestException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, Types } from 'mongoose';
 import { Task, TaskDocument } from '../tasks/schemas/task.schema';
-import { Category, CategoryDocument } from '../categories/schemas/category.schema';
 import { User, UserDocument } from '../users/schemas/user.schema';
 
 interface ExportData {
@@ -15,7 +14,6 @@ interface ExportData {
     fullName: string;
   };
   tasks: any[];
-  categories: any[];
 }
 
 @Injectable()
@@ -25,7 +23,6 @@ export class BackupService {
 
   constructor(
     @InjectModel(Task.name) private taskModel: Model<TaskDocument>,
-    @InjectModel(Category.name) private categoryModel: Model<CategoryDocument>,
     @InjectModel(User.name) private userModel: Model<UserDocument>
   ) {}
 
@@ -37,10 +34,9 @@ export class BackupService {
     try {
       const userIdObj = new Types.ObjectId(userId);
 
-      const [user, tasks, categories] = await Promise.all([
+      const [user, tasks] = await Promise.all([
         this.userModel.findById(userIdObj).exec(),
         this.taskModel.find({ user: userIdObj }).exec(),
-        this.categoryModel.find({ user: userIdObj }).exec(),
       ]);
 
       if (!user) {
@@ -57,11 +53,10 @@ export class BackupService {
           fullName: user.fullName,
         },
         tasks: tasks.map((task) => task.toJSON()),
-        categories: categories.map((cat) => cat.toJSON()),
       };
 
       this.logger.log(
-        `Datos exportados para usuario ${userId}: ${tasks.length} tareas, ${categories.length} categorías`
+        `Datos exportados para usuario ${userId}: ${tasks.length} tareas`
       );
 
       return exportData;
@@ -83,7 +78,7 @@ export class BackupService {
   ): Promise<{ imported: number; skipped: number }> {
     try {
       // Validar formato de datos
-      if (!data.version || !data.tasks || !data.categories) {
+      if (!data.version || !data.tasks) {
         throw new BadRequestException('Formato de datos inválido');
       }
 
@@ -91,54 +86,15 @@ export class BackupService {
       let importedCount = 0;
       let skippedCount = 0;
 
-      // Importar categorías primero
-      const categoryMapping = new Map<string, string>();
-
-      for (const catData of data.categories) {
-        try {
-          // Verificar si ya existe una categoría con ese nombre
-          const existing = await this.categoryModel.findOne({
-            user: userIdObj,
-            name: catData.name,
-          });
-
-          if (existing) {
-            categoryMapping.set(catData.id, existing.id);
-            skippedCount++;
-          } else {
-            const newCategory = new this.categoryModel({
-              name: catData.name,
-              color: catData.color,
-              description: catData.description,
-              icon: catData.icon,
-              user: userIdObj,
-            });
-            const saved = await newCategory.save();
-            categoryMapping.set(catData.id, saved.id);
-            importedCount++;
-          }
-        } catch (error) {
-          const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-          this.logger.warn(`Error importando categoría ${catData.name}: ${errorMessage}`);
-          skippedCount++;
-        }
-      }
-
       // Importar tareas
       for (const taskData of data.tasks) {
         try {
-          // Mapear categorías antiguas a nuevas
-          const mappedCategories = taskData.categories
-            .map((oldCatId: string) => categoryMapping.get(oldCatId))
-            .filter((id: string | undefined) => id !== undefined);
-
           const newTask = new this.taskModel({
             title: taskData.title,
             description: taskData.description,
             status: taskData.status,
             priority: taskData.priority,
             dueDate: taskData.dueDate,
-            categories: mappedCategories,
             tags: taskData.tags,
             subtasks: taskData.subtasks,
             order: taskData.order,
@@ -197,13 +153,10 @@ export class BackupService {
     try {
       const userIdObj = new Types.ObjectId(userId);
 
-      const [tasksDeleted, categoriesDeleted] = await Promise.all([
-        this.taskModel.deleteMany({ user: userIdObj }),
-        this.categoryModel.deleteMany({ user: userIdObj }),
-      ]);
+      const tasksDeleted = await this.taskModel.deleteMany({ user: userIdObj });
 
       this.logger.warn(
-        `Todos los datos eliminados para usuario ${userId}: ${tasksDeleted.deletedCount} tareas, ${categoriesDeleted.deletedCount} categorías`
+        `Todos los datos eliminados para usuario ${userId}: ${tasksDeleted.deletedCount} tareas`
       );
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'Unknown error';

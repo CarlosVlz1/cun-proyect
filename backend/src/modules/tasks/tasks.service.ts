@@ -25,30 +25,17 @@ export class TasksService {
    */
   async create(userId: string, createTaskDto: CreateTaskDto): Promise<Task> {
     try {
-      // Convertir categorías a ObjectId si existen
       const taskData: any = {
         ...createTaskDto,
         user: new Types.ObjectId(userId),
       };
 
-      if (createTaskDto.categories && Array.isArray(createTaskDto.categories)) {
-        taskData.categories = createTaskDto.categories.map(
-          (catId) => new Types.ObjectId(catId),
-        );
-      }
-
       const task = new this.taskModel(taskData);
       const savedTask = await task.save();
 
-      // Poblar categorías después de guardar
-      const populatedTask = await this.taskModel
-        .findById(savedTask._id)
-        .populate('categories', 'name color icon description')
-        .exec();
-
       this.logger.log(`Tarea creada: ${savedTask.title} por usuario ${userId}`);
 
-      return populatedTask ? populatedTask.toJSON() : savedTask.toJSON();
+      return savedTask.toJSON();
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'Unknown error';
       const errorStack = error instanceof Error ? error.stack : undefined;
@@ -66,7 +53,6 @@ export class TasksService {
       const {
         status,
         priority,
-        category,
         tag,
         search,
         archived = false,
@@ -85,10 +71,6 @@ export class TasksService {
       // Filtros
       if (status) query.status = status;
       if (priority) query.priority = priority;
-      if (category) {
-        // Si se filtra por categoría, buscar tareas que contengan esa categoría en el array
-        query.categories = new Types.ObjectId(category);
-      }
       if (tag) query.tags = tag;
 
       // Búsqueda full-text
@@ -103,20 +85,21 @@ export class TasksService {
       const sortOptions: any = {};
       sortOptions[sortBy] = sortOrder === 'asc' ? 1 : -1;
 
-      // Ejecutar query con población de categorías
+      // Ejecutar query
       const [tasks, total] = await Promise.all([
         this.taskModel
           .find(query)
           .sort(sortOptions)
           .skip(skip)
           .limit(limit)
-          .populate('categories', 'name color icon description')
           .exec(),
         this.taskModel.countDocuments(query),
       ]);
 
+      const serializedTasks = tasks.map((task) => task.toJSON());
+
       return {
-        tasks: tasks.map((task) => task.toJSON()),
+        tasks: serializedTasks,
         pagination: {
           total,
           page,
@@ -141,10 +124,7 @@ export class TasksService {
       throw new BadRequestException('ID de tarea inválido');
     }
 
-    const task = await this.taskModel
-      .findById(id)
-      .populate('categories', 'name color icon description')
-      .exec();
+    const task = await this.taskModel.findById(id).exec();
 
     if (!task) {
       throw new NotFoundException('Tarea no encontrada');
@@ -167,17 +147,8 @@ export class TasksService {
     await this.findOne(userId, id);
 
     try {
-      // Convertir categorías a ObjectId si existen en el update
-      const updateData: any = { ...updateTaskDto };
-      if (updateTaskDto.categories && Array.isArray(updateTaskDto.categories)) {
-        updateData.categories = updateTaskDto.categories.map(
-          (catId) => new Types.ObjectId(catId),
-        );
-      }
-
       const updatedTask = await this.taskModel
-        .findByIdAndUpdate(id, updateData, { new: true })
-        .populate('categories', 'name color icon description')
+        .findByIdAndUpdate(id, updateTaskDto, { new: true })
         .exec();
 
       if (!updatedTask) {
@@ -305,7 +276,6 @@ export class TasksService {
           },
         })
         .sort({ dueDate: 1 })
-        .populate('categories', 'name color icon description')
         .exec();
 
       return tasks.map((task) => task.toJSON());
@@ -335,7 +305,6 @@ export class TasksService {
           },
         })
         .sort({ dueDate: 1 })
-        .populate('categories', 'name color icon description')
         .exec();
 
       return tasks.map((task) => task.toJSON());
