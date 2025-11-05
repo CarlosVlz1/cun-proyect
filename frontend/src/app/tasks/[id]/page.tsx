@@ -21,11 +21,10 @@ import {
   Grid,
   Divider,
 } from '@mui/material';
-import { ArrowBack, Edit, Delete, CheckCircle, Archive } from '@mui/icons-material';
+import { ArrowBack, Edit, Delete, CheckCircle, Archive, Schedule, PlayCircle } from '@mui/icons-material';
 import { DashboardLayout } from '@/components/DashboardLayout';
 import { tasksService } from '@/services/api/tasks.service';
-import { categoriesService } from '@/services/api/categories.service';
-import { Task, TaskStatus, TaskPriority, UpdateTaskData, Category } from '@/types';
+import { Task, TaskStatus, TaskPriority, UpdateTaskData } from '@/types';
 import toast from 'react-hot-toast';
 
 export default function TaskDetailPage() {
@@ -35,32 +34,19 @@ export default function TaskDetailPage() {
   const [task, setTask] = useState<Task | null>(null);
   const [loading, setLoading] = useState(true);
   const [editing, setEditing] = useState(false);
-  const [availableCategories, setAvailableCategories] = useState<Category[]>([]);
   const [formData, setFormData] = useState<UpdateTaskData>({
     title: '',
     description: '',
     status: TaskStatus.PENDING,
     priority: TaskPriority.MEDIUM,
     dueDate: '',
-    categories: [],
   });
 
   useEffect(() => {
     if (taskId) {
       loadTask();
-      loadCategories();
     }
   }, [taskId]);
-
-  const loadCategories = async () => {
-    try {
-      const data = await categoriesService.getCategories();
-      const categoriesArray = Array.isArray(data) ? data : [];
-      setAvailableCategories(categoriesArray);
-    } catch (error: any) {
-      console.error('Error loading categories:', error);
-    }
-  };
 
   const loadTask = async () => {
     setLoading(true);
@@ -73,7 +59,6 @@ export default function TaskDetailPage() {
         status: taskData.status,
         priority: taskData.priority,
         dueDate: taskData.dueDate ? new Date(taskData.dueDate).toISOString().slice(0, 16) : '',
-        categories: taskData.categories?.map((cat) => cat.id) || [],
       });
     } catch (error: any) {
       toast.error('Error al cargar la tarea');
@@ -141,6 +126,15 @@ export default function TaskDetailPage() {
     return labels[status];
   };
 
+  const getStatusIcon = (status: TaskStatus) => {
+    const icons: Record<TaskStatus, React.ReactElement> = {
+      [TaskStatus.PENDING]: <Schedule sx={{ fontSize: '0.875rem' }} />,
+      [TaskStatus.IN_PROGRESS]: <PlayCircle sx={{ fontSize: '0.875rem' }} />,
+      [TaskStatus.COMPLETED]: <CheckCircle sx={{ fontSize: '0.875rem' }} />,
+    };
+    return icons[status];
+  };
+
   const getPriorityLabel = (priority: TaskPriority) => {
     const labels: Record<TaskPriority, string> = {
       [TaskPriority.LOW]: 'Baja',
@@ -150,11 +144,23 @@ export default function TaskDetailPage() {
     return labels[priority];
   };
 
-  const getPriorityColor = (priority: TaskPriority): 'default' | 'warning' | 'error' => {
-    const colors: Record<TaskPriority, 'default' | 'warning' | 'error'> = {
-      [TaskPriority.LOW]: 'default',
-      [TaskPriority.MEDIUM]: 'warning',
-      [TaskPriority.HIGH]: 'error',
+  const getPriorityColor = (priority: TaskPriority) => {
+    const colors: Record<TaskPriority, { backgroundColor: string; color: string; border?: string }> = {
+      [TaskPriority.LOW]: {
+        backgroundColor: '#10b98120', // Verde claro (success)
+        color: '#059669', // Verde oscuro
+        border: '1px solid #10b98140',
+      },
+      [TaskPriority.MEDIUM]: {
+        backgroundColor: '#f59e0b20', // Naranja claro (warning)
+        color: '#d97706', // Naranja oscuro
+        border: '1px solid #f59e0b40',
+      },
+      [TaskPriority.HIGH]: {
+        backgroundColor: '#ef444420', // Rojo claro (error)
+        color: '#dc2626', // Rojo oscuro
+        border: '1px solid #ef444440',
+      },
     };
     return colors[priority];
   };
@@ -271,58 +277,6 @@ export default function TaskDetailPage() {
                     }}
                   />
 
-                  <FormControl fullWidth>
-                    <InputLabel>Categorías</InputLabel>
-                    <Select
-                      multiple
-                      value={formData.categories || []}
-                      onChange={(e) => setFormData({ ...formData, categories: e.target.value as string[] })}
-                      input={<OutlinedInput label="Categorías" />}
-                      renderValue={(selected) => (
-                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
-                          {selected.map((categoryId, index) => {
-                            const category = availableCategories.find((cat) => cat.id === categoryId);
-                            return category ? (
-                              <Chip
-                                key={`category-${categoryId}-${index}`}
-                                label={category.name}
-                                size="small"
-                                sx={{
-                                  backgroundColor: `${category.color}20`,
-                                  color: category.color,
-                                  border: `1px solid ${category.color}40`,
-                                }}
-                              />
-                            ) : null;
-                          })}
-                        </Box>
-                      )}
-                    >
-                      {availableCategories.map((category) => (
-                        <MenuItem key={category.id} value={category.id}>
-                          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                            <Box
-                              sx={{
-                                width: 20,
-                                height: 20,
-                                borderRadius: '4px',
-                                backgroundColor: `${category.color}30`,
-                                color: category.color,
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                fontSize: '0.875rem',
-                              }}
-                            >
-                              {category.icon || '📁'}
-                            </Box>
-                            {category.name}
-                          </Box>
-                        </MenuItem>
-                      ))}
-                    </Select>
-                  </FormControl>
-
                   <Box sx={{ display: 'flex', gap: 2, pt: 2 }}>
                     <Button type="submit" variant="contained">
                       Guardar Cambios
@@ -346,10 +300,31 @@ export default function TaskDetailPage() {
                   <Box sx={{ display: 'flex', gap: 1, alignItems: 'center', flexWrap: 'wrap' }}>
                     <Chip
                       label={getPriorityLabel(task.priority)}
-                      color={getPriorityColor(task.priority)}
                       size="small"
+                      sx={{
+                        ...getPriorityColor(task.priority),
+                        fontWeight: 600,
+                        fontSize: '0.75rem',
+                        '& .MuiChip-label': {
+                          padding: '0 8px',
+                        },
+                      }}
                     />
-                    <Chip label={getStatusLabel(task.status)} size="small" variant="outlined" />
+                    <Chip
+                      icon={getStatusIcon(task.status)}
+                      label={getStatusLabel(task.status)}
+                      size="small"
+                      variant="outlined"
+                      sx={{
+                        '& .MuiChip-icon': {
+                          color: task.status === TaskStatus.PENDING 
+                            ? '#f59e0b' 
+                            : task.status === TaskStatus.IN_PROGRESS 
+                            ? '#3b82f6' 
+                            : '#10b981',
+                        },
+                      }}
+                    />
                   </Box>
                 </Box>
                 <Box sx={{ display: 'flex', gap: 1 }}>
@@ -387,49 +362,6 @@ export default function TaskDetailPage() {
                     <Typography variant="body1">
                       {new Date(task.dueDate).toLocaleString()}
                     </Typography>
-                  </Grid>
-                )}
-                {task.categories && task.categories.length > 0 && (
-                  <Grid item xs={12} sm={6} md={task.dueDate ? 8 : 12}>
-                    <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-                      Categorías
-                    </Typography>
-                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-                      {task.categories.map((cat, index) => {
-                        // Determinar el icono a mostrar
-                        let displayIcon = '📁';
-                        if (cat.icon && typeof cat.icon === 'string') {
-                          const iconTrimmed = cat.icon.trim();
-                          if (iconTrimmed && iconTrimmed !== 'folder' && iconTrimmed.length > 0) {
-                            displayIcon = iconTrimmed;
-                          }
-                        }
-                        
-                        return (
-                          <Chip
-                            key={cat.id || `category-${index}`}
-                            label={
-                              <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-                                <span key="icon">{displayIcon}</span>
-                                <span key="name">{cat.name}</span>
-                              </Box>
-                            }
-                          size="small"
-                          sx={{
-                            backgroundColor: `${cat.color}20`,
-                            color: cat.color,
-                            border: `1px solid ${cat.color}40`,
-                            '& .MuiChip-label': {
-                              display: 'flex',
-                              alignItems: 'center',
-                              gap: '4px',
-                              padding: '0 8px',
-                            },
-                          }}
-                        />
-                        );
-                      })}
-                    </Box>
                   </Grid>
                 )}
                 {task.tags && task.tags.length > 0 && (

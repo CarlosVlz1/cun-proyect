@@ -4,12 +4,11 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { signOut } from 'next-auth/react';
 import { AppBar, Toolbar, Button, Box, Container } from '@mui/material';
-import { Dashboard, Task, Folder, BarChart, Person } from '@mui/icons-material';
+import { Dashboard, Task, BarChart, Person } from '@mui/icons-material';
 
 const navigation = [
   { name: 'Dashboard', href: '/dashboard', icon: Dashboard },
   { name: 'Tareas', href: '/tasks', icon: Task },
-  { name: 'Categorías', href: '/categories', icon: Folder },
   { name: 'Estadísticas', href: '/statistics', icon: BarChart },
   { name: 'Perfil', href: '/profile', icon: Person },
 ];

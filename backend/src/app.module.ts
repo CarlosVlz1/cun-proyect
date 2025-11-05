@@ -8,7 +8,6 @@ import { APP_GUARD } from '@nestjs/core';
 import { AuthModule } from './modules/auth/auth.module';
 import { UsersModule } from './modules/users/users.module';
 import { TasksModule } from './modules/tasks/tasks.module';
-import { CategoriesModule } from './modules/categories/categories.module';
 import { StatisticsModule } from './modules/statistics/statistics.module';
 import { BackupModule } from './modules/backup/backup.module';
 
@@ -65,7 +64,6 @@ import { validationSchema } from './config/validation.schema';
     AuthModule,
     UsersModule,
     TasksModule,
-    CategoriesModule,
     StatisticsModule,
     BackupModule,
   ],

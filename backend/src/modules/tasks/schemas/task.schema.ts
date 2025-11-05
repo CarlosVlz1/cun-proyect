@@ -83,14 +83,6 @@ export class Task {
   dueDate?: Date;
 
   @ApiProperty({
-    description: 'IDs de categorías asignadas',
-    type: [String],
-    example: ['507f1f77bcf86cd799439011'],
-  })
-  @Prop({ type: [{ type: Types.ObjectId, ref: 'Category' }], default: [] })
-  categories!: Types.ObjectId[];
-
-  @ApiProperty({
     description: 'Etiquetas personalizadas',
     type: [String],
     example: ['urgente', 'revision'],
@@ -147,7 +139,6 @@ TaskSchema.index({ user: 1, status: 1 });
 TaskSchema.index({ user: 1, priority: 1 });
 TaskSchema.index({ user: 1, dueDate: 1 });
 TaskSchema.index({ user: 1, archived: 1 });
-TaskSchema.index({ user: 1, categories: 1 });
 TaskSchema.index({ title: 'text', description: 'text', tags: 'text' });
 
 // Middleware para actualizar completedAt cuando la tarea se completa

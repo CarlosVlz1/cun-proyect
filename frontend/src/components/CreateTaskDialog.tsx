@@ -20,8 +20,7 @@ import {
 } from '@mui/material';
 import { Close } from '@mui/icons-material';
 import { tasksService } from '@/services/api/tasks.service';
-import { categoriesService } from '@/services/api/categories.service';
-import { CreateTaskData, TaskStatus, TaskPriority, Category } from '@/types';
+import { CreateTaskData, TaskStatus, TaskPriority } from '@/types';
 import toast from 'react-hot-toast';
 
 interface CreateTaskDialogProps {
@@ -32,23 +31,15 @@ interface CreateTaskDialogProps {
 
 export function CreateTaskDialog({ isOpen, onClose, onTaskCreated }: CreateTaskDialogProps) {
   const [loading, setLoading] = useState(false);
-  const [categories, setCategories] = useState<Category[]>([]);
-  const [loadingCategories, setLoadingCategories] = useState(false);
   const [formData, setFormData] = useState<CreateTaskData>({
     title: '',
     description: '',
     status: TaskStatus.PENDING,
     priority: TaskPriority.MEDIUM,
     dueDate: '',
-    categories: [],
     tags: [],
   });
 
-  useEffect(() => {
-    if (isOpen) {
-      loadCategories();
-    }
-  }, [isOpen]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -85,23 +76,8 @@ export function CreateTaskDialog({ isOpen, onClose, onTaskCreated }: CreateTaskD
       status: TaskStatus.PENDING,
       priority: TaskPriority.MEDIUM,
       dueDate: '',
-      categories: [],
       tags: [],
     });
-  };
-
-  const loadCategories = async () => {
-    setLoadingCategories(true);
-    try {
-      const data = await categoriesService.getCategories();
-      const categoriesArray = Array.isArray(data) ? data : [];
-      setCategories(categoriesArray);
-    } catch (error: any) {
-      console.error('Error loading categories:', error);
-      toast.error('Error al cargar las categorías');
-    } finally {
-      setLoadingCategories(false);
-    }
   };
 
   const handleClose = () => {
@@ -112,10 +88,6 @@ export function CreateTaskDialog({ isOpen, onClose, onTaskCreated }: CreateTaskD
   const handleTagsChange = (value: string) => {
     const tags = value.split(',').map((tag) => tag.trim()).filter((tag) => tag);
     setFormData({ ...formData, tags });
-  };
-
-  const handleCategoryChange = (categoryIds: string[]) => {
-    setFormData({ ...formData, categories: categoryIds });
   };
 
   return (
@@ -202,68 +174,6 @@ export function CreateTaskDialog({ isOpen, onClose, onTaskCreated }: CreateTaskD
                 shrink: true,
               }}
             />
-
-            <FormControl fullWidth>
-              <InputLabel>Categorías</InputLabel>
-              <Select
-                multiple
-                value={formData.categories || []}
-                onChange={(e) => handleCategoryChange(e.target.value as string[])}
-                input={<OutlinedInput label="Categorías" />}
-                renderValue={(selected) => (
-                  <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
-                    {selected.map((categoryId) => {
-                      const category = categories.find((cat) => cat.id === categoryId);
-                      return category ? (
-                        <Chip
-                          key={categoryId}
-                          label={category.name}
-                          size="small"
-                          sx={{
-                            backgroundColor: `${category.color}20`,
-                            color: category.color,
-                            border: `1px solid ${category.color}40`,
-                          }}
-                        />
-                      ) : null;
-                    })}
-                  </Box>
-                )}
-                disabled={loadingCategories || categories.length === 0}
-              >
-                {categories.length === 0 && !loadingCategories ? (
-                  <MenuItem disabled>No hay categorías disponibles</MenuItem>
-                ) : (
-                  categories.map((category) => (
-                    <MenuItem key={category.id} value={category.id}>
-                      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                        <Box
-                          sx={{
-                            width: 20,
-                            height: 20,
-                            borderRadius: '4px',
-                            backgroundColor: `${category.color}30`,
-                            color: category.color,
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            fontSize: '0.875rem',
-                          }}
-                        >
-                          {category.icon || '📁'}
-                        </Box>
-                        {category.name}
-                      </Box>
-                    </MenuItem>
-                  ))
-                )}
-              </Select>
-              {categories.length === 0 && !loadingCategories && (
-                <Typography variant="caption" color="text.secondary" sx={{ mt: 0.5, display: 'block' }}>
-                  Crea categorías desde la página de Categorías para organizar tus tareas
-                </Typography>
-              )}
-            </FormControl>
 
             <TextField
               fullWidth

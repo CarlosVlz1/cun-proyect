@@ -71,7 +71,6 @@ export interface Task {
   status: TaskStatus;
   priority: TaskPriority;
   dueDate?: string;
-  categories: Category[];
   tags: string[];
   subtasks: Subtask[];
   order: number;
@@ -87,7 +86,6 @@ export interface CreateTaskData {
   status?: TaskStatus;
   priority?: TaskPriority;
   dueDate?: string;
-  categories?: string[];
   tags?: string[];
   subtasks?: Subtask[];
   order?: number;
@@ -98,7 +96,6 @@ export interface UpdateTaskData extends Partial<CreateTaskData> {}
 export interface TaskFilters {
   status?: TaskStatus;
   priority?: TaskPriority;
-  category?: string;
   tag?: string;
   search?: string;
   archived?: boolean;
@@ -117,26 +114,6 @@ export interface TasksResponse {
     pages: number;
   };
 }
-
-// Categoría
-export interface Category {
-  id: string;
-  name: string;
-  color: string;
-  description: string;
-  icon: string;
-  createdAt: string;
-  updatedAt: string;
-}
-
-export interface CreateCategoryData {
-  name: string;
-  color: string;
-  description?: string;
-  icon?: string;
-}
-
-export interface UpdateCategoryData extends Partial<CreateCategoryData> {}
 
 // Estadísticas
 export interface GeneralStats {
@@ -187,7 +164,6 @@ export interface ExportData {
     fullName: string;
   };
   tasks: Task[];
-  categories: Category[];
 }
 
 export interface ImportResult {

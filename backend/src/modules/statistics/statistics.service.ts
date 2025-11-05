@@ -147,52 +147,6 @@ export class StatisticsService {
    * Obtiene estadísticas por categoría
    * ISO 25010: Funcionalidad
    */
-  async getByCategory(userId: string) {
-    try {
-      const stats = await this.taskModel.aggregate([
-        {
-          $match: {
-            user: new Types.ObjectId(userId),
-            archived: false,
-          },
-        },
-        {
-          $unwind: {
-            path: '$categories',
-            preserveNullAndEmptyArrays: true,
-          },
-        },
-        {
-          $group: {
-            _id: {
-              category: '$categories',
-              status: '$status',
-            },
-            count: { $sum: 1 },
-          },
-        },
-        {
-          $lookup: {
-            from: 'categories',
-            localField: '_id.category',
-            foreignField: '_id',
-            as: 'categoryInfo',
-          },
-        },
-      ]);
-
-      return stats.map((item) => ({
-        category: item.categoryInfo[0] || null,
-        status: item._id.status,
-        count: item.count,
-      }));
-    } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-      const errorStack = error instanceof Error ? error.stack : undefined;
-      this.logger.error(`Error obteniendo estadísticas por categoría: ${errorMessage}`, errorStack);
-      throw new BadRequestException('Error al obtener estadísticas por categoría');
-    }
-  }
 
   /**
    * Obtiene productividad semanal (tareas completadas por día)

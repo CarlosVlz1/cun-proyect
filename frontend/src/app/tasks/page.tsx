@@ -21,7 +21,7 @@ import {
   CircularProgress,
   Alert,
 } from '@mui/material';
-import { Add, CheckCircle, Delete, Edit } from '@mui/icons-material';
+import { Add, CheckCircle, Delete, Edit, Schedule, PlayCircle } from '@mui/icons-material';
 import { DashboardLayout } from '@/components/DashboardLayout';
 import { CreateTaskDialog } from '@/components/CreateTaskDialog';
 import { tasksService } from '@/services/api/tasks.service';
@@ -204,6 +204,15 @@ export default function TasksPage() {
     return labels[status];
   };
 
+  const getStatusIcon = (status: TaskStatus) => {
+    const icons: Record<TaskStatus, React.ReactElement> = {
+      [TaskStatus.PENDING]: <Schedule sx={{ fontSize: '0.875rem' }} />,
+      [TaskStatus.IN_PROGRESS]: <PlayCircle sx={{ fontSize: '0.875rem' }} />,
+      [TaskStatus.COMPLETED]: <CheckCircle sx={{ fontSize: '0.875rem' }} />,
+    };
+    return icons[status];
+  };
+
   const getPriorityLabel = (priority: TaskPriority) => {
     const labels: Record<TaskPriority, string> = {
       [TaskPriority.LOW]: 'Baja',
@@ -213,11 +222,23 @@ export default function TasksPage() {
     return labels[priority];
   };
 
-  const getPriorityColor = (priority: TaskPriority): 'default' | 'warning' | 'error' => {
-    const colors: Record<TaskPriority, 'default' | 'warning' | 'error'> = {
-      [TaskPriority.LOW]: 'default',
-      [TaskPriority.MEDIUM]: 'warning',
-      [TaskPriority.HIGH]: 'error',
+  const getPriorityColor = (priority: TaskPriority) => {
+    const colors: Record<TaskPriority, { backgroundColor: string; color: string; border?: string }> = {
+      [TaskPriority.LOW]: {
+        backgroundColor: '#10b98120', // Verde claro (success)
+        color: '#059669', // Verde oscuro
+        border: '1px solid #10b98140',
+      },
+      [TaskPriority.MEDIUM]: {
+        backgroundColor: '#f59e0b20', // Naranja claro (warning)
+        color: '#d97706', // Naranja oscuro
+        border: '1px solid #f59e0b40',
+      },
+      [TaskPriority.HIGH]: {
+        backgroundColor: '#ef444420', // Rojo claro (error)
+        color: '#dc2626', // Rojo oscuro
+        border: '1px solid #ef444440',
+      },
     };
     return colors[priority];
   };
@@ -370,8 +391,15 @@ export default function TasksPage() {
                         </Link>
                         <Chip
                           label={getPriorityLabel(task.priority)}
-                          color={getPriorityColor(task.priority)}
                           size="small"
+                          sx={{
+                            ...getPriorityColor(task.priority),
+                            fontWeight: 600,
+                            fontSize: '0.75rem',
+                            '& .MuiChip-label': {
+                              padding: '0 8px',
+                            },
+                          }}
                         />
                       </Box>
                       {task.description && (
@@ -390,54 +418,27 @@ export default function TasksPage() {
                         </Typography>
                       )}
                       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
-                        <Chip label={getStatusLabel(task.status)} size="small" variant="outlined" />
+                        <Chip
+                          icon={getStatusIcon(task.status)}
+                          label={getStatusLabel(task.status)}
+                          size="small"
+                          variant="outlined"
+                          sx={{
+                            '& .MuiChip-icon': {
+                              color: task.status === TaskStatus.PENDING 
+                                ? '#f59e0b' 
+                                : task.status === TaskStatus.IN_PROGRESS 
+                                ? '#3b82f6' 
+                                : '#10b981',
+                            },
+                          }}
+                        />
                         {task.dueDate && (
                           <Typography variant="caption" color="text.secondary">
                             {new Date(task.dueDate).toLocaleDateString()}
                           </Typography>
                         )}
                       </Box>
-                      {task.categories && task.categories.length > 0 && (
-                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, mb: 2 }}>
-                          {task.categories.map((cat) => {
-                            // Determinar el icono a mostrar
-                            // Si el icono es 'folder' (default del backend) o está vacío, usar el emoji por defecto
-                            let displayIcon = '📁';
-                            if (cat.icon && typeof cat.icon === 'string') {
-                              const iconTrimmed = cat.icon.trim();
-                              // Si es un emoji (no es 'folder' ni está vacío), usarlo
-                              if (iconTrimmed && iconTrimmed !== 'folder' && iconTrimmed.length > 0) {
-                                displayIcon = iconTrimmed;
-                              }
-                            }
-                            
-                            return (
-                              <Chip
-                                key={cat.id}
-                                label={
-                                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-                                    <span>{displayIcon}</span>
-                                    <span>{cat.name}</span>
-                                  </Box>
-                                }
-                                size="small"
-                                sx={{
-                                  backgroundColor: `${cat.color}20`,
-                                  color: cat.color,
-                                  border: `1px solid ${cat.color}40`,
-                                  fontSize: '0.7rem',
-                                  '& .MuiChip-label': {
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: '4px',
-                                    padding: '0 8px',
-                                  },
-                                }}
-                              />
-                            );
-                          })}
-                        </Box>
-                      )}
                       <Box sx={{ display: 'flex', gap: 1 }}>
                         <Button
                           variant="outlined"

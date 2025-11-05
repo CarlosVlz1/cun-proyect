@@ -32,13 +32,6 @@ export class StatisticsController {
     return this.statisticsService.getByPriority(req.user.userId);
   }
 
-  @Get('by-category')
-  @ApiOperation({ summary: 'Obtener estadísticas por categoría' })
-  @ApiResponse({ status: 200, description: 'Estadísticas obtenidas exitosamente' })
-  async getByCategory(@Request() req: RequestWithUser) {
-    return this.statisticsService.getByCategory(req.user.userId);
-  }
-
   @Get('weekly-productivity')
   @ApiOperation({ summary: 'Obtener productividad semanal (tareas completadas por día)' })
   @ApiResponse({ status: 200, description: 'Productividad obtenida exitosamente' })

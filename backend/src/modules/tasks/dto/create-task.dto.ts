@@ -85,17 +85,6 @@ export class CreateTaskDto {
   dueDate?: string;
 
   @ApiProperty({
-    description: 'IDs de categorías asignadas',
-    type: [String],
-    example: ['507f1f77bcf86cd799439011'],
-    required: false,
-  })
-  @IsOptional()
-  @IsArray({ message: 'Las categorías deben ser un array' })
-  @IsMongoId({ each: true, message: 'ID de categoría inválido' })
-  categories?: string[];
-
-  @ApiProperty({
     description: 'Etiquetas personalizadas',
     type: [String],
     example: ['urgente', 'revision'],
