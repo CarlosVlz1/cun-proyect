@@ -38,20 +38,40 @@ export function Providers({ children }: { children: React.ReactNode }) {
               toastOptions={{
                 duration: 4000,
                 style: {
-                  background: 'hsl(var(--background))',
-                  color: 'hsl(var(--foreground))',
-                  border: '1px solid hsl(var(--border))',
+                  background: '#ffffff',
+                  color: '#0f172a',
+                  border: '1.5px solid rgba(15, 23, 42, 0.16)',
+                  borderRadius: '10px',
+                  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06)',
+                  padding: '16px',
+                  fontSize: '14px',
+                  fontWeight: 500,
+                  fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif',
                 },
                 success: {
+                  style: {
+                    background: '#ffffff',
+                    color: '#0f172a',
+                    border: '1.5px solid #10b981',
+                    borderRadius: '10px',
+                    boxShadow: '0 4px 6px rgba(16, 185, 129, 0.15), 0 2px 4px rgba(16, 185, 129, 0.1)',
+                  },
                   iconTheme: {
-                    primary: 'hsl(var(--primary))',
-                    secondary: 'white',
+                    primary: '#10b981',
+                    secondary: '#ffffff',
                   },
                 },
                 error: {
+                  style: {
+                    background: '#ffffff',
+                    color: '#0f172a',
+                    border: '1.5px solid #ef4444',
+                    borderRadius: '10px',
+                    boxShadow: '0 4px 6px rgba(239, 68, 68, 0.15), 0 2px 4px rgba(239, 68, 68, 0.1)',
+                  },
                   iconTheme: {
-                    primary: 'hsl(var(--destructive))',
-                    secondary: 'white',
+                    primary: '#ef4444',
+                    secondary: '#ffffff',
                   },
                 },
               }}

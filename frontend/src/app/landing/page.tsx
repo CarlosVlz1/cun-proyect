@@ -438,13 +438,14 @@ export default function LandingPage() {
                 fontSize: '1.1rem',
                 borderRadius: 2,
                 bgcolor: 'white !important',
-                color: 'primary.main !important',
+                color: '#1f2937 !important',
                 fontWeight: 600,
                 boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
                 '&:hover': {
                   bgcolor: '#f8fafc !important',
                   boxShadow: '0 6px 16px rgba(0, 0, 0, 0.2)',
                   transform: 'translateY(-2px)',
+                  color: '#111827 !important',
                 },
               }}
             >

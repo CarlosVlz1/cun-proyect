@@ -24,14 +24,6 @@ export const statisticsService = {
   },
 
   /**
-   * Obtiene estadísticas por categoría
-   */
-  async getByCategory(): Promise<any[]> {
-    const response = await axiosInstance.get<any[]>('/statistics/by-category');
-    return response.data;
-  },
-
-  /**
    * Obtiene productividad semanal
    */
   async getWeeklyProductivity(): Promise<ProductivityData[]> {
