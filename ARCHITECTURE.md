@@ -14,7 +14,7 @@ El sistema está construido siguiendo una arquitectura **Full Stack** moderna co
 │  └──────────┘  └──────────┘  └──────────┘             │
 │       │              │              │                   │
 │       └──────────────┼──────────────┘                   │
-│                      │ HTTP/REST                         │
+│                      │ HTTP/REST / WebSocket             │
 └──────────────────────┼──────────────────────────────────┘
                        │
 ┌──────────────────────┼──────────────────────────────────┐
@@ -24,13 +24,69 @@ El sistema está construido siguiendo una arquitectura **Full Stack** moderna co
 │  └──────────┘  └──────────┘  └──────────┘             │
 │       │              │              │                   │
 │       └──────────────┼──────────────┘                   │
+│                      │                                  │
+│         ┌────────────┴────────────┐                     │
+│         │                         │                     │
+│    ┌────▼────┐              ┌────▼────┐               │
+│    │Publishers│              │Subscribers│             │
+│    │(Events) │              │(Handlers)│             │
+│    └────┬────┘              └────┬────┘               │
+│         │                        │                     │
+│         └────────────┬───────────┘                     │
+│                      │ Pub/Sub Protocol                 │
+│                      │                                  │
 │                      │ Mongoose ODM                     │
 └──────────────────────┼──────────────────────────────────┘
-                       │
-                ┌──────────────┐
-                │   MongoDB    │
-                └──────────────┘
+                   │ │
+         ┌─────────┘ └─────────┐
+         │                     │
+┌────────▼────────┐   ┌────────▼────────┐
+│Message Broker   │   │   MongoDB       │
+│  (Redis)        │   │                 │
+│  - Pub/Sub      │   │  - Persistence  │
+│  - Events       │   │  - Data Store   │
+└─────────────────┘   └─────────────────┘
 ```
+
+### Patrón Pub/Sub (Publicación/Suscripción)
+
+El sistema implementa un patrón **Pub/Sub** para comunicación asíncrona y desacoplada entre componentes:
+
+#### Componentes
+
+1. **Publishers (Publicadores)**
+   - Los Services publican eventos cuando ocurren acciones importantes
+   - Ejemplos: `task.created`, `task.updated`, `user.registered`
+   - Desacopla la lógica de negocio de las acciones reactivas
+
+2. **Message Broker (Redis)**
+   - Actúa como intermediario entre publishers y subscribers
+   - Garantiza la entrega de mensajes
+   - Permite múltiples subscribers para el mismo evento
+   - Soporta patrones de cola y pub/sub
+
+3. **Subscribers (Suscriptores)**
+   - Escuchan eventos específicos del Message Broker
+   - Ejecutan handlers cuando reciben eventos
+   - Ejemplos: notificaciones, actualización de caché, logging, webhooks
+
+#### Flujo de Eventos
+
+```
+1. Service → Ejecuta acción de negocio
+2. Service → Publica evento al Message Broker
+3. Message Broker → Distribuye evento a todos los subscribers
+4. Subscribers → Ejecutan handlers (notificaciones, caché, etc.)
+5. Frontend → Recibe actualizaciones vía WebSocket (opcional)
+```
+
+#### Casos de Uso
+
+- **Notificaciones en tiempo real**: Cuando se crea una tarea, notificar a otros usuarios
+- **Invalidación de caché**: Actualizar caché cuando cambian datos
+- **Logging y auditoría**: Registrar eventos importantes
+- **Integraciones externas**: Enviar webhooks a servicios externos
+- **Cálculo de estadísticas**: Actualizar métricas cuando cambian datos
 
 ## Backend Architecture
 
