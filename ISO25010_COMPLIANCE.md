@@ -13,14 +13,12 @@ ISO/IEC 25010 define un modelo de calidad de producto de software con 8 caracter
 #### 1.1 Adecuación Funcional
 - ✅ **Sistema cumple con todos los requisitos funcionales**
 - ✅ Gestión completa de tareas (CRUD)
-- ✅ Sistema de categorías funcional
 - ✅ Autenticación y autorización implementadas
 - ✅ Estadísticas y reportes disponibles
 
 #### 1.2 Completitud Funcional
 - ✅ **Todas las funciones requeridas están implementadas**
 - ✅ CRUD completo para tareas
-- ✅ CRUD completo para categorías
 - ✅ Gestión de usuarios
 - ✅ Sistema de autenticación completo
 - ✅ Dashboard con estadísticas

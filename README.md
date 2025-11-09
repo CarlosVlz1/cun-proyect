@@ -4,12 +4,11 @@ Sistema completo de gestión de tareas Full Stack desarrollado con NestJS y Next
 
 ## 📋 Descripción
 
-Aplicación web moderna para la gestión eficiente de tareas, diseñada para maximizar la productividad. Incluye funcionalidades completas de CRUD, autenticación segura, categorización, estadísticas y más.
+Aplicación web moderna para la gestión eficiente de tareas, diseñada para maximizar la productividad. Incluye funcionalidades completas de CRUD, autenticación segura, estadísticas y más.
 
 ## ✨ Características Principales
 
 - ✅ **Gestión Completa de Tareas**: Crear, editar, eliminar y organizar tareas
-- 📁 **Categorías Personalizadas**: Organiza tareas con categorías, colores e iconos
 - 📊 **Estadísticas Avanzadas**: Visualiza tu productividad con métricas detalladas
 - 🔐 **Autenticación Segura**: Sistema de autenticación con JWT y NextAuth
 - 🎨 **Interfaz Moderna**: UI construida con Material-UI y diseño responsive
@@ -48,7 +47,6 @@ cun-project/
 │   │   ├── modules/  # Módulos de la aplicación
 │   │   │   ├── auth/
 │   │   │   ├── tasks/
-│   │   │   ├── categories/
 │   │   │   ├── users/
 │   │   │   ├── statistics/
 │   │   │   └── backup/

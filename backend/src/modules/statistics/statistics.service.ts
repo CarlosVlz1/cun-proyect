@@ -144,11 +144,6 @@ export class StatisticsService {
   }
 
   /**
-   * Obtiene estadísticas por categoría
-   * ISO 25010: Funcionalidad
-   */
-
-  /**
    * Obtiene productividad semanal (tareas completadas por día)
    * ISO 25010: Funcionalidad, Usabilidad
    */

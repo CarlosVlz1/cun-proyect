@@ -43,13 +43,6 @@ Sistema de Gestión de Tareas es una aplicación web full-stack desarrollada par
 - 🎯 Prioridades: Baja, Media, Alta
 - 📅 Fechas de vencimiento
 - 🏷️ Etiquetas personalizadas
-- 📁 Asignación a categorías
-
-### Categorías
-- 🎨 Colores personalizados
-- 📝 Iconos personalizados
-- 📄 Descripciones
-- 🔗 Relación con tareas
 
 ### Estadísticas
 - 📈 Tareas totales, completadas, pendientes
@@ -154,7 +147,7 @@ El proyecto cumple con los siguientes atributos de calidad:
 - Backend completo con todos los módulos
 - Frontend completo con todas las vistas
 - Autenticación funcional
-- CRUD completo de tareas y categorías
+- CRUD completo de tareas
 - Estadísticas y dashboard
 - Landing page
 - Diseño responsive

@@ -56,14 +56,13 @@ async function bootstrap() {
     .setTitle('API Sistema de Gestión de Tareas')
     .setDescription(
       'API RESTful completa para gestión de tareas cumpliendo con ISO 25010. ' +
-        'Incluye autenticación JWT, CRUD de tareas, categorías, búsqueda avanzada, ' +
+        'Incluye autenticación JWT, CRUD de tareas, búsqueda avanzada, ' +
         'estadísticas y exportación de datos.'
     )
     .setVersion('1.0')
     .addTag('auth', 'Endpoints de autenticación y registro')
     .addTag('users', 'Gestión de usuarios y perfiles')
     .addTag('tasks', 'CRUD de tareas y operaciones relacionadas')
-    .addTag('categories', 'Gestión de categorías de tareas')
     .addTag('statistics', 'Estadísticas y métricas de productividad')
     .addTag('backup', 'Backup, restauración y exportación de datos')
     .addBearerAuth(

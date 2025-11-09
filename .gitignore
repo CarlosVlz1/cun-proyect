@@ -27,3 +27,9 @@ backend/.eslintrc.js
 .DS_Store
 .vscode
 *.trace
+
+# Coverage reports
+coverage/
+*.lcov
+coverage-final.json
+.nyc_output

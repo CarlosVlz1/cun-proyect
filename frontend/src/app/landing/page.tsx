@@ -39,8 +39,8 @@ const features = [
   },
   {
     icon: <Folder />,
-    title: 'Categorías Personalizadas',
-    description: 'Organiza tus tareas con categorías personalizadas, colores e iconos únicos.',
+    title: 'Etiquetas y Filtros',
+    description: 'Organiza tus tareas con etiquetas personalizadas y filtros avanzados.',
   },
   {
     icon: <BarChart />,
@@ -77,7 +77,7 @@ const steps = [
   {
     number: '2',
     title: 'Organiza tus tareas',
-    description: 'Crea categorías personalizadas y comienza a agregar tus tareas.',
+    description: 'Agrega etiquetas y comienza a organizar tus tareas.',
   },
   {
     number: '3',

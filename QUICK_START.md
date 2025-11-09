@@ -49,7 +49,7 @@ NEXT_PUBLIC_API_URL=http://localhost:4000/api
 2. **Crea tu cuenta**: Usa un email y contraseña
 3. **Inicia sesión**: Serás redirigido automáticamente
 4. **Crea tu primera tarea**: Haz clic en "Nueva Tarea"
-5. **Crea categorías**: Ve a "Categorías" para organizar
+5. **Organiza tus tareas**: Usa etiquetas y filtros para organizar
 
 ## 🔑 Endpoints Principales
 

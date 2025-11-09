@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
@@ -28,7 +28,8 @@ import { tasksService } from '@/services/api/tasks.service';
 import { Task, TaskStatus, TaskPriority, TaskFilters } from '@/types';
 import toast from 'react-hot-toast';
 
-export default function TasksPage() {
+// Componente interno que usa useSearchParams
+function TasksPageContent() {
   const searchParams = useSearchParams();
   const { data: session, status: sessionStatus } = useSession();
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -477,5 +478,22 @@ export default function TasksPage() {
         />
       </Container>
     </DashboardLayout>
+  );
+}
+
+// Componente principal con Suspense boundary
+export default function TasksPage() {
+  return (
+    <Suspense fallback={
+      <DashboardLayout>
+        <Container maxWidth="xl">
+          <Box sx={{ display: 'flex', justifyContent: 'center', py: 8 }}>
+            <CircularProgress />
+          </Box>
+        </Container>
+      </DashboardLayout>
+    }>
+      <TasksPageContent />
+    </Suspense>
   );
 }

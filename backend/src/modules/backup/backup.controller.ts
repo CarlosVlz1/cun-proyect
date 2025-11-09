@@ -42,7 +42,7 @@ export class BackupController {
   @HttpCode(HttpStatus.OK)
   @ApiOperation({
     summary: 'Importar datos desde un archivo JSON',
-    description: 'Importa tareas y categorías. Las categorías duplicadas se omiten.',
+    description: 'Importa tareas desde un archivo JSON.',
   })
   @ApiResponse({
     status: 200,
@@ -83,7 +83,7 @@ export class BackupController {
   @ApiOperation({
     summary: 'Eliminar TODOS los datos del usuario',
     description:
-      '⚠️ PRECAUCIÓN: Esta acción elimina permanentemente todas las tareas y categorías.',
+      '⚠️ PRECAUCIÓN: Esta acción elimina permanentemente todas las tareas.',
   })
   @ApiResponse({ status: 204, description: 'Todos los datos eliminados' })
   async deleteAllData(@Request() req: RequestWithUser) {

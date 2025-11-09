@@ -114,7 +114,6 @@ backend/
 │       │   ├── tasks.service.ts
 │       │   ├── schemas/          # Mongoose schemas
 │       │   └── dto/              # Data Transfer Objects
-│       ├── categories/            # Categorías
 │       ├── users/                 # Usuarios
 │       ├── statistics/            # Estadísticas
 │       └── backup/                # Respaldo de datos
@@ -153,7 +152,6 @@ frontend/
 │   │   ├── register/             # Página de registro
 │   │   ├── dashboard/            # Dashboard
 │   │   ├── tasks/                # Gestión de tareas
-│   │   ├── categories/           # Gestión de categorías
 │   │   ├── statistics/           # Estadísticas
 │   │   └── profile/              # Perfil de usuario
 │   ├── components/                # Componentes reutilizables
@@ -164,7 +162,6 @@ frontend/
 │   ├── services/                 # Servicios API
 │   │   └── api/
 │   │       ├── tasks.service.ts
-│   │       ├── categories.service.ts
 │   │       └── auth.service.ts
 │   ├── theme/                    # Tema MUI
 │   └── types/                    # TypeScript types
@@ -234,18 +231,9 @@ Task {
   status: Enum [PENDING, IN_PROGRESS, COMPLETED]
   priority: Enum [LOW, MEDIUM, HIGH]
   dueDate: Date
-  categories: [ObjectId] → Category
   tags: [String]
   user: ObjectId → User
   archived: Boolean
-}
-
-Category {
-  name: String
-  color: String (hex)
-  icon: String
-  description: String
-  user: ObjectId → User
 }
 ```
 
