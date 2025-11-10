@@ -29,10 +29,7 @@ async function bootstrap() {
     const connection = app.get<Connection>(getConnectionToken());
     const dbState = connection.readyState;
     
-    if (dbState === 1) {
-      Logger.log('✅ MongoDB conectado y listo', 'Bootstrap');
-      Logger.log(`📊 Base de datos: ${connection.db?.databaseName || 'N/A'}`, 'Bootstrap');
-    } else if (dbState === 0) {
+    if (dbState !== 1) {
       Logger.warn('⚠️  MongoDB desconectado, esperando conexión...', 'Bootstrap');
       // Esperar hasta 10 segundos por la conexión
       let attempts = 0;
@@ -40,14 +37,9 @@ async function bootstrap() {
         await new Promise(resolve => setTimeout(resolve, 1000));
         attempts++;
       }
-      if (connection.readyState === 1) {
-        Logger.log('✅ MongoDB conectado después de esperar', 'Bootstrap');
-      } else {
+      if (connection.readyState !== 1) {
         Logger.error('❌ MongoDB no se pudo conectar después de 10 segundos', 'Bootstrap');
-        Logger.error(`Estado de conexión: ${dbState} (0=desconectado, 1=conectado, 2=conectando, 3=desconectando)`, 'Bootstrap');
       }
-    } else {
-      Logger.warn(`⚠️  Estado de MongoDB: ${dbState} (0=desconectado, 1=conectado, 2=conectando, 3=desconectando)`, 'Bootstrap');
     }
   } catch (error) {
     Logger.error(`❌ Error verificando conexión a MongoDB: ${error instanceof Error ? error.message : 'Unknown error'}`, 'Bootstrap');
@@ -87,7 +79,6 @@ async function bootstrap() {
       if (isAllowed) {
         callback(null, true);
       } else {
-        Logger.warn(`🚫 CORS bloqueado para origin: ${origin}`, 'CORS');
         callback(new Error('Not allowed by CORS'));
       }
     },
@@ -152,24 +143,11 @@ async function bootstrap() {
     customCss: '.swagger-ui .topbar { display: none }',
   });
 
-  // Middleware para logging de requests (solo en desarrollo o para debugging)
-  app.use((req: any, res: any, next: () => void) => {
-    Logger.log(`📥 ${req.method} ${req.url}`, 'Request');
-    Logger.log(`🌐 Origin: ${req.headers.origin || 'N/A'}`, 'Request');
-    Logger.log(`🔑 Authorization: ${req.headers.authorization ? 'Present' : 'Missing'}`, 'Request');
-    next();
-  });
 
   // Escuchar en 0.0.0.0 para aceptar conexiones externas (importante para Railway)
   await app.listen(port, '0.0.0.0');
 
-  Logger.log(`🚀 Aplicación ejecutándose en: http://0.0.0.0:${port}/api`, 'Bootstrap');
-  Logger.log(`📚 Documentación Swagger en: http://0.0.0.0:${port}/api/docs`, 'Bootstrap');
-  Logger.log(`🌐 CORS configurado para: ${frontendUrl} y URLs de Railway`, 'Bootstrap');
-  Logger.log(
-    `🗄️  Base de datos: ${configService.get('MONGODB_URI')?.split('@')[1]?.split('?')[0]}`,
-    'Bootstrap'
-  );
+  Logger.log(`🚀 Aplicación ejecutándose en el puerto ${port}`, 'Bootstrap');
 }
 
 bootstrap();

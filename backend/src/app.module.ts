@@ -30,27 +30,14 @@ import { validationSchema } from './config/validation.schema';
       imports: [ConfigModule],
       useFactory: async (configService: ConfigService) => {
         const uri = configService.get<string>('database.uri');
-        console.log('🔌 Intentando conectar a MongoDB...');
-        console.log(`📍 URI: ${uri?.replace(/\/\/[^:]+:[^@]+@/, '//***:***@')}`); // Ocultar credenciales en logs
         
         return {
           uri,
           retryAttempts: 5,
           retryDelay: 2000,
           connectionFactory: (connection) => {
-            connection.on('connected', () => {
-              console.log('✅ MongoDB conectado exitosamente');
-              console.log(`📊 Base de datos: ${connection.db?.databaseName || 'N/A'}`);
-            });
             connection.on('error', (error: Error) => {
-              console.error('❌ Error de conexión a MongoDB:', error.message);
-              console.error('Stack:', error.stack);
-            });
-            connection.on('disconnected', () => {
-              console.log('⚠️  MongoDB desconectado');
-            });
-            connection.on('reconnected', () => {
-              console.log('🔄 MongoDB reconectado');
+              console.error('Error de conexión a MongoDB:', error.message);
             });
             return connection;
           },

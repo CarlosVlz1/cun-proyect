@@ -11,7 +11,6 @@ import {
   Query,
   HttpCode,
   HttpStatus,
-  Logger,
 } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiResponse, ApiBearerAuth, ApiQuery } from '@nestjs/swagger';
 import { TasksService } from './tasks.service';
@@ -34,8 +33,6 @@ interface RequestWithUser extends Request {
 @UseGuards(JwtAuthGuard)
 @Controller('tasks')
 export class TasksController {
-  private readonly logger = new Logger(TasksController.name);
-
   constructor(private readonly tasksService: TasksService) {}
 
   @Post()
@@ -50,14 +47,9 @@ export class TasksController {
   @ApiOperation({ summary: 'Obtener todas las tareas con filtros' })
   @ApiResponse({ status: 200, description: 'Lista de tareas obtenida exitosamente' })
   async findAll(@Request() req: RequestWithUser, @Query() filterDto: FilterTaskDto) {
-    this.logger.log(`📋 Obteniendo tareas para usuario: ${req.user?.userId || 'NO USER'}`);
-    this.logger.log(`🔍 Filtros aplicados: ${JSON.stringify(filterDto)}`);
-    
     if (!req.user || !req.user.userId) {
-      this.logger.error('❌ No se encontró usuario en el request');
       throw new Error('Usuario no autenticado');
     }
-    
     return this.tasksService.findAll(req.user.userId, filterDto);
   }
 
