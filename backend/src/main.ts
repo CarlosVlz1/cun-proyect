@@ -56,19 +56,24 @@ async function bootstrap() {
   // Prefijo global para todas las rutas
   app.setGlobalPrefix('api');
 
-  // Seguridad: Helmet para headers HTTP seguros
-  app.use(helmet());
-
-  // Compresión de respuestas
-  app.use(compression());
-
-  // CORS configurado
+  // CORS configurado ANTES de Helmet (importante para que funcione correctamente)
   app.enableCors({
     origin: [frontendUrl, 'http://localhost:3000'],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
   });
+
+  // Seguridad: Helmet para headers HTTP seguros (configurado para no bloquear CORS)
+  app.use(
+    helmet({
+      crossOriginResourcePolicy: { policy: 'cross-origin' },
+      contentSecurityPolicy: false, // Deshabilitar CSP para evitar problemas con CORS
+    })
+  );
+
+  // Compresión de respuestas
+  app.use(compression());
 
   // Validación global con class-validator
   app.useGlobalPipes(
@@ -114,10 +119,19 @@ async function bootstrap() {
     customCss: '.swagger-ui .topbar { display: none }',
   });
 
+  // Middleware para logging de requests (solo en desarrollo o para debugging)
+  app.use((req, res, next) => {
+    Logger.log(`📥 ${req.method} ${req.url}`, 'Request');
+    Logger.log(`🌐 Origin: ${req.headers.origin || 'N/A'}`, 'Request');
+    Logger.log(`🔑 Authorization: ${req.headers.authorization ? 'Present' : 'Missing'}`, 'Request');
+    next();
+  });
+
   await app.listen(port);
 
   Logger.log(`🚀 Aplicación ejecutándose en: http://localhost:${port}/api`, 'Bootstrap');
   Logger.log(`📚 Documentación Swagger en: http://localhost:${port}/api/docs`, 'Bootstrap');
+  Logger.log(`🌐 CORS configurado para: ${frontendUrl}`, 'Bootstrap');
   Logger.log(
     `🗄️  Base de datos: ${configService.get('MONGODB_URI')?.split('@')[1]?.split('?')[0]}`,
     'Bootstrap'

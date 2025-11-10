@@ -37,16 +37,24 @@ axiosInstance.interceptors.request.use(
       const fullUrl = `${config.baseURL}${config.url}`;
       console.log('📤 Request:', config.method?.toUpperCase(), fullUrl);
       
-      const session = await getSession();
-      
-      if (session?.accessToken) {
-        config.headers.Authorization = `Bearer ${session.accessToken}`;
-        console.log('✅ Token agregado a request:', config.url);
-      } else {
-        console.warn('⚠️  No hay token en la sesión para:', config.url);
+      // Intentar obtener la sesión, pero no bloquear si falla
+      try {
+        const session = await getSession();
+        
+        if (session?.accessToken) {
+          config.headers.Authorization = `Bearer ${session.accessToken}`;
+          console.log('✅ Token agregado a request:', config.url);
+        } else {
+          console.warn('⚠️  No hay token en la sesión para:', config.url);
+          // No bloquear la petición, solo advertir
+        }
+      } catch (sessionError) {
+        console.warn('⚠️  Error obteniendo sesión (continuando sin token):', sessionError);
+        // Continuar sin token - el backend rechazará si es necesario
       }
     } catch (error) {
-      console.error('❌ Error obteniendo sesión en interceptor:', error);
+      console.error('❌ Error en interceptor de request:', error);
+      // No rechazar la petición, dejar que continúe
     }
     
     return config;
