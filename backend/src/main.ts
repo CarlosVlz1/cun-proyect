@@ -120,7 +120,7 @@ async function bootstrap() {
   });
 
   // Middleware para logging de requests (solo en desarrollo o para debugging)
-  app.use((req, res, next) => {
+  app.use((req: any, res: any, next: () => void) => {
     Logger.log(`📥 ${req.method} ${req.url}`, 'Request');
     Logger.log(`🌐 Origin: ${req.headers.origin || 'N/A'}`, 'Request');
     Logger.log(`🔑 Authorization: ${req.headers.authorization ? 'Present' : 'Missing'}`, 'Request');
