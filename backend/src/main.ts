@@ -2,6 +2,8 @@ import { NestFactory } from '@nestjs/core';
 import { ValidationPipe, Logger } from '@nestjs/common';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { ConfigService } from '@nestjs/config';
+import { getConnectionToken } from '@nestjs/mongoose';
+import { Connection } from 'mongoose';
 import helmet from 'helmet';
 import * as compression from 'compression';
 import { AppModule } from './app.module';
@@ -21,6 +23,35 @@ async function bootstrap() {
   const configService = app.get(ConfigService);
   const port = configService.get<number>('PORT', 4000);
   const frontendUrl = configService.get<string>('FRONTEND_URL', 'http://localhost:3000');
+
+  // Verificar conexión a MongoDB antes de continuar
+  try {
+    const connection = app.get<Connection>(getConnectionToken());
+    const dbState = connection.readyState;
+    
+    if (dbState === 1) {
+      Logger.log('✅ MongoDB conectado y listo', 'Bootstrap');
+      Logger.log(`📊 Base de datos: ${connection.db?.databaseName || 'N/A'}`, 'Bootstrap');
+    } else if (dbState === 0) {
+      Logger.warn('⚠️  MongoDB desconectado, esperando conexión...', 'Bootstrap');
+      // Esperar hasta 10 segundos por la conexión
+      let attempts = 0;
+      while (connection.readyState !== 1 && attempts < 10) {
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        attempts++;
+      }
+      if (connection.readyState === 1) {
+        Logger.log('✅ MongoDB conectado después de esperar', 'Bootstrap');
+      } else {
+        Logger.error('❌ MongoDB no se pudo conectar después de 10 segundos', 'Bootstrap');
+        Logger.error(`Estado de conexión: ${dbState} (0=desconectado, 1=conectado, 2=conectando, 3=desconectando)`, 'Bootstrap');
+      }
+    } else {
+      Logger.warn(`⚠️  Estado de MongoDB: ${dbState} (0=desconectado, 1=conectado, 2=conectando, 3=desconectando)`, 'Bootstrap');
+    }
+  } catch (error) {
+    Logger.error(`❌ Error verificando conexión a MongoDB: ${error instanceof Error ? error.message : 'Unknown error'}`, 'Bootstrap');
+  }
 
   // Prefijo global para todas las rutas
   app.setGlobalPrefix('api');
