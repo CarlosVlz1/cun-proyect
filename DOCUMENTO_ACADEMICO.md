@@ -246,6 +246,7 @@ El sistema incluye las siguientes funcionalidades:
 - **Autenticación**: JWT con NextAuth.js
 - **Documentación**: Swagger/OpenAPI para API
 - **Despliegue**: Soporte para Docker y servicios cloud
+- **Análisis de Calidad**: SonarQube para análisis estático de código, detección de bugs, vulnerabilidades, code smells y métricas de calidad (integración con CI/CD)
 
 #### 6.3.3 Limitaciones
 
@@ -312,6 +313,7 @@ La muestra se selecciona por accesibilidad y conocimiento técnico necesario par
 - Análisis de cobertura de código
 - Pruebas de seguridad
 - Auditoría de código
+- **SonarQube**: Análisis estático de código para detección de bugs, vulnerabilidades, code smells, duplicación de código y métricas de calidad (complejidad ciclomática, mantenibilidad, confiabilidad, seguridad)
 
 #### 6.6.4 Pruebas de Usabilidad
 
@@ -362,6 +364,7 @@ La muestra se selecciona por accesibilidad y conocimiento técnico necesario par
 - Mejora de usabilidad
 - Implementación de logging y manejo de errores
 - Pruebas de carga y rendimiento
+- Configuración de SonarQube para análisis continuo de calidad de código
 
 **Semana 12-13: Validación y Documentación**
 - Verificación de cumplimiento ISO 25010
@@ -469,6 +472,7 @@ La muestra se selecciona por accesibilidad y conocimiento técnico necesario par
 - Schemas de Mongoose para validación de datos
 - Type safety con TypeScript
 - Transacciones de base de datos donde aplica
+- **SonarQube**: Detección automática de vulnerabilidades de seguridad en el código, identificación de patrones inseguros y recomendaciones para mejorar la integridad del sistema
 
 **No Repudio**: ✅ **CUMPLIDO**
 - Logs de todas las operaciones importantes
@@ -506,6 +510,7 @@ La muestra se selecciona por accesibilidad y conocimiento técnico necesario par
 - Documentación de código (JSDoc)
 - Estructura de carpetas clara y lógica
 - Nombres descriptivos y consistentes
+- **SonarQube**: Análisis estático continuo que identifica problemas de código, mide complejidad ciclomática, detecta duplicación y proporciona métricas de calidad objetivas, facilitando la identificación de áreas de mejora y el mantenimiento del código
 
 **Modificabilidad**: ✅ **CUMPLIDO**
 - Separación de responsabilidades (SOLID)
@@ -789,6 +794,7 @@ AppModule
 | **VS Code** | $0 | Editor de código gratuito |
 | **Node.js** | $0 | Runtime gratuito y open source |
 | **Docker** | $0 | Contenedores gratuitos |
+| **SonarQube/SonarCloud** | $0 | Análisis de calidad de código gratuito para proyectos open source |
 
 #### 7.4.4 Costos Totales
 
@@ -851,7 +857,7 @@ El proyecto es **altamente viable económicamente** para desarrollo académico y
 
 2. **Monitoreo y Observabilidad**: Implementar herramientas de monitoreo (APM, logging centralizado) para producción que permitan detectar problemas de rendimiento y errores en tiempo real.
 
-3. **CI/CD Pipeline**: Establecer un pipeline de integración y despliegue continuo que automatice pruebas, builds y despliegues, reduciendo errores humanos y acelerando el ciclo de desarrollo.
+3. **CI/CD Pipeline**: Establecer un pipeline de integración y despliegue continuo que automatice pruebas, builds y despliegues, reduciendo errores humanos y acelerando el ciclo de desarrollo. **PARCIALMENTE IMPLEMENTADO**: El proyecto incluye workflow de GitHub Actions para análisis de calidad con SonarQube que se ejecuta automáticamente en cada push y pull request. Se recomienda extender el pipeline para incluir despliegue automático y ejecución de tests en CI.
 
 4. **Documentación de API Mejorada**: Aunque Swagger está implementado, se recomienda agregar ejemplos más detallados y casos de uso para facilitar la integración por parte de desarrolladores externos.
 
@@ -871,7 +877,7 @@ El proyecto es **altamente viable económicamente** para desarrollo académico y
 
 ### 9.3 Recomendaciones de Calidad
 
-1. **Métricas de Calidad Continuas**: Establecer un proceso de medición continua de métricas de calidad (cobertura de código, complejidad ciclomática, deuda técnica) para mantener los estándares a lo largo del tiempo.
+1. **Métricas de Calidad Continuas**: Establecer un proceso de medición continua de métricas de calidad (cobertura de código, complejidad ciclomática, deuda técnica) para mantener los estándares a lo largo del tiempo. **IMPLEMENTADO**: El proyecto incluye configuración de SonarQube para análisis automático de calidad de código, integrado con CI/CD mediante GitHub Actions, permitiendo análisis continuo en cada push y pull request. SonarQube proporciona métricas detalladas sobre bugs, vulnerabilidades, code smells, duplicación de código, cobertura de tests y mantenibilidad, facilitando la detección temprana de problemas de calidad y el cumplimiento de estándares ISO 25010.
 
 2. **Auditorías de Seguridad Periódicas**: Realizar auditorías de seguridad regulares, incluyendo análisis de dependencias vulnerables y pruebas de penetración básicas.
 

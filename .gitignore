@@ -33,3 +33,8 @@ coverage/
 *.lcov
 coverage-final.json
 .nyc_output
+
+# SonarQube
+.sonar/
+.scannerwork/
+sonar-project.properties.local

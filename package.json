@@ -20,10 +20,16 @@
     "test": "npm run test:backend && npm run test:frontend",
     "test:backend": "cd backend && npm run test",
     "test:frontend": "cd frontend && npm run test",
+    "test:cov": "npm run test:cov:backend && npm run test:cov:frontend",
+    "test:cov:backend": "cd backend && npm run test:cov",
+    "test:cov:frontend": "cd frontend && npm run test:cov",
     "lint": "npm run lint:backend && npm run lint:frontend",
     "lint:backend": "cd backend && npm run lint",
     "lint:frontend": "cd frontend && npm run lint",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "sonar": "sonar-scanner",
+    "sonar:local": "sonar-scanner -Dsonar.host.url=http://localhost:9000",
+    "sonar:cloud": "sonar-scanner -Dsonar.host.url=https://sonarcloud.io",
     "docker:up": "docker-compose up -d",
     "docker:down": "docker-compose down",
     "docker:logs": "docker-compose logs -f",
@@ -41,7 +47,8 @@
   "author": "Sistema de Gestión de Tareas",
   "license": "MIT",
   "devDependencies": {
-    "prettier": "^3.2.5"
+    "prettier": "^3.2.5",
+    "sonarqube-scanner": "^3.9.1"
   }
 }
 

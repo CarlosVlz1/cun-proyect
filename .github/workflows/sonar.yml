@@ -1,0 +1,51 @@
+name: SonarQube Analysis
+
+on:
+  push:
+    branches: [ main, develop, master ]
+  pull_request:
+    branches: [ main, develop, master ]
+  workflow_dispatch:
+
+jobs:
+  sonar:
+    name: SonarQube Analysis
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for better analysis
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: |
+          npm install
+          cd backend && npm install
+          cd ../frontend && npm install
+      
+      - name: Run backend tests with coverage
+        run: |
+          cd backend
+          npm run test:cov || true
+      
+      - name: Run frontend tests with coverage
+        run: |
+          cd frontend
+          npm run test:cov || true
+      
+      - name: SonarQube Scan
+        uses: sonarsource/sonarqube-scan-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          SONAR_ORGANIZATION: ${{ secrets.SONAR_ORGANIZATION }}
+        with:
+          projectBaseDir: .
+
