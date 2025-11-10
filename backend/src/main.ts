@@ -57,11 +57,44 @@ async function bootstrap() {
   app.setGlobalPrefix('api');
 
   // CORS configurado ANTES de Helmet (importante para que funcione correctamente)
+  // Permitir múltiples orígenes: frontend URL configurada, localhost, y cualquier URL de Railway
+  const allowedOrigins = [
+    frontendUrl,
+    'http://localhost:3000',
+    'https://localhost:3000',
+    /^https:\/\/.*\.up\.railway\.app$/,
+    /^https:\/\/.*\.railway\.app$/,
+  ];
+  
   app.enableCors({
-    origin: [frontendUrl, 'http://localhost:3000'],
+    origin: (origin, callback) => {
+      // Permitir requests sin origin (ej: Postman, mobile apps)
+      if (!origin) {
+        return callback(null, true);
+      }
+      
+      // Verificar si el origin está en la lista permitida
+      const isAllowed = allowedOrigins.some(allowedOrigin => {
+        if (typeof allowedOrigin === 'string') {
+          return origin === allowedOrigin;
+        }
+        if (allowedOrigin instanceof RegExp) {
+          return allowedOrigin.test(origin);
+        }
+        return false;
+      });
+      
+      if (isAllowed) {
+        callback(null, true);
+      } else {
+        Logger.warn(`🚫 CORS bloqueado para origin: ${origin}`, 'CORS');
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
+    exposedHeaders: ['Content-Range', 'X-Content-Range'],
   });
 
   // Seguridad: Helmet para headers HTTP seguros (configurado para no bloquear CORS)
@@ -127,11 +160,12 @@ async function bootstrap() {
     next();
   });
 
-  await app.listen(port);
+  // Escuchar en 0.0.0.0 para aceptar conexiones externas (importante para Railway)
+  await app.listen(port, '0.0.0.0');
 
-  Logger.log(`🚀 Aplicación ejecutándose en: http://localhost:${port}/api`, 'Bootstrap');
-  Logger.log(`📚 Documentación Swagger en: http://localhost:${port}/api/docs`, 'Bootstrap');
-  Logger.log(`🌐 CORS configurado para: ${frontendUrl}`, 'Bootstrap');
+  Logger.log(`🚀 Aplicación ejecutándose en: http://0.0.0.0:${port}/api`, 'Bootstrap');
+  Logger.log(`📚 Documentación Swagger en: http://0.0.0.0:${port}/api/docs`, 'Bootstrap');
+  Logger.log(`🌐 CORS configurado para: ${frontendUrl} y URLs de Railway`, 'Bootstrap');
   Logger.log(
     `🗄️  Base de datos: ${configService.get('MONGODB_URI')?.split('@')[1]?.split('?')[0]}`,
     'Bootstrap'
