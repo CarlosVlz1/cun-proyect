@@ -6,7 +6,21 @@ import { getSession, signOut } from 'next-auth/react';
  * ISO 25010: Fiabilidad, Seguridad
  */
 
+// Obtener API_URL - en Next.js, NEXT_PUBLIC_* se inyecta en build time
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api';
+
+// Validación y logging
+if (typeof window !== 'undefined') {
+  console.log('🔗 API_URL configurada:', API_URL);
+  console.log('🔗 NEXT_PUBLIC_API_URL desde env:', process.env.NEXT_PUBLIC_API_URL || 'NO CONFIGURADA');
+  
+  // Advertencia si está usando localhost en producción
+  if (API_URL.includes('localhost') && window.location.hostname !== 'localhost') {
+    console.error('❌ ERROR: NEXT_PUBLIC_API_URL no está configurada correctamente');
+    console.error('❌ Se está usando localhost en producción:', API_URL);
+    console.error('❌ Configura NEXT_PUBLIC_API_URL en Railway → Frontend → Variables');
+  }
+}
 
 export const axiosInstance = axios.create({
   baseURL: API_URL,
@@ -20,6 +34,9 @@ export const axiosInstance = axios.create({
 axiosInstance.interceptors.request.use(
   async (config) => {
     try {
+      const fullUrl = `${config.baseURL}${config.url}`;
+      console.log('📤 Request:', config.method?.toUpperCase(), fullUrl);
+      
       const session = await getSession();
       
       if (session?.accessToken) {
@@ -47,12 +64,28 @@ axiosInstance.interceptors.response.use(
     return response;
   },
   async (error) => {
+    // Detectar Network Error específicamente
+    if (error.message === 'Network Error' || error.code === 'ERR_NETWORK') {
+      const attemptedUrl = error.config ? `${error.config.baseURL}${error.config.url}` : 'URL desconocida';
+      console.error('❌ NETWORK ERROR - La petición no llegó al servidor');
+      console.error('📤 URL intentada:', attemptedUrl);
+      console.error('🔗 API_URL configurada:', API_URL);
+      console.error('💡 Posibles causas:');
+      console.error('   1. NEXT_PUBLIC_API_URL no está configurada en Railway');
+      console.error('   2. La URL del backend es incorrecta');
+      console.error('   3. Problema de CORS');
+      console.error('   4. El backend no está respondiendo');
+    }
+    
     console.error('❌ Error en response:', {
       url: error.config?.url,
+      baseURL: error.config?.baseURL,
+      fullURL: error.config ? `${error.config.baseURL}${error.config.url}` : 'N/A',
       status: error.response?.status,
       statusText: error.response?.statusText,
       data: error.response?.data,
       message: error.message,
+      code: error.code,
     });
     
     if (error.response?.status === 401) {
