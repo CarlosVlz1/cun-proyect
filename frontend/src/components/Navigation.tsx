@@ -53,7 +53,7 @@ export function Navigation() {
           </Box>
           <Button
             variant="outlined"
-            onClick={() => signOut({ callbackUrl: '/login' })}
+            onClick={() => signOut({ callbackUrl: '/landing' })}
             size="small"
           >
             Cerrar Sesión

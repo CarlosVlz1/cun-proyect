@@ -102,7 +102,7 @@ export default function ProfilePage() {
     try {
       await usersService.deleteAccount();
       toast.success('Cuenta desactivada');
-      signOut({ callbackUrl: '/login' });
+      signOut({ callbackUrl: '/landing' });
     } catch (error: any) {
       toast.error(error.response?.data?.message || 'Error al desactivar la cuenta');
     }
